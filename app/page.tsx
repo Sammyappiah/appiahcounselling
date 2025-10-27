@@ -4,21 +4,24 @@ import { motion } from "framer-motion";
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-white to-gray-50 text-gray-800">
-      <motion.h1 
-        initial={{ opacity: 0, y: 20 }} 
-        animate={{ opacity: 1, y: 0 }} 
+    <main className="flex flex-col items-center justify-center text-center px-6 py-20 bg-background">
+      <motion.h1
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="text-5xl font-light mb-6 tracking-tight"
+        className="text-5xl font-light mb-6 text-accent"
       >
-        Appiah Counselling
+        A Calm Space for Growth & Healing
       </motion.h1>
-      <p className="text-lg text-gray-600 mb-8">Professional therapy for individuals and couples.</p>
-      <div className="flex space-x-6">
-        <Link href="/booking" className="px-6 py-3 bg-emerald-600 text-white rounded-full shadow hover:bg-emerald-700 transition">
+      <p className="text-lg text-gray-600 max-w-2xl mb-8">
+        Compassionate counselling for individuals and couples.  
+        Build clarity, emotional resilience, and connection.
+      </p>
+      <div className="flex space-x-4">
+        <Link href="/booking" className="bg-accent text-white hover:bg-terracotta px-8 py-3 rounded-full shadow">
           Book a Session
         </Link>
-        <Link href="/about" className="px-6 py-3 border border-emerald-600 text-emerald-600 rounded-full hover:bg-emerald-50 transition">
+        <Link href="/about" className="border border-accent text-accent hover:bg-sand/40 px-8 py-3 rounded-full">
           Learn More
         </Link>
       </div>
