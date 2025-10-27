@@ -13,7 +13,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Navbar */}
         <nav className="w-full border-b border-sand bg-white/80 backdrop-blur-md sticky top-0 z-50">
           <div className="max-w-6xl mx-auto px-6 py-3 flex justify-between items-center">
-            {/* Logo */}
             <Link href="/" className="flex items-center space-x-3">
               <img
                 src="/logo.png"
@@ -21,8 +20,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 className="h-10 w-auto"
               />
             </Link>
-
-            {/* Navigation Links */}
             <div className="space-x-6 text-sm font-medium">
               <Link href="/" className="hover:text-accent transition">Home</Link>
               <Link href="/about" className="hover:text-accent transition">About</Link>
@@ -37,7 +34,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         {/* Footer */}
         <footer className="w-full border-t border-sand bg-white mt-10">
-          <div className="max-w-6xl mx-auto text-center py-6 text-sm text-softgray">
+          <div className="max-w-6xl mx-auto text-center py-6 text-sm text-graylight">
             © {new Date().getFullYear()} Appiah Counselling — All Rights Reserved
           </div>
         </footer>

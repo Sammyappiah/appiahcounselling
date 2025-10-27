@@ -10,11 +10,12 @@ const config: Config = {
     extend: {
       colors: {
         background: "#FAFAFA", // soft neutral background
-        text: "#333333", // dark grey text
-        accent: "#E66000", // Appiah orange
-        softgray: "#B0B0B0", // subtle grey
-        sand: "#E5DED4", // soft divider
-        white: "#FFFFFF",
+        text: "#2E2E2E", // dark grey for body text
+        accent: "#E85C0D", // warm orange brand tone
+        accentDark: "#C24A09", // darker orange for hover
+        sand: "#E4DDD5", // subtle beige divider
+        graylight: "#B6B6B6", // light grey for secondary text
+        white: "#FFFFFF", // white base
       },
       fontFamily: {
         sans: ["Inter", "sans-serif"],
@@ -24,4 +25,3 @@ const config: Config = {
   plugins: [],
 };
 export default config;
-
