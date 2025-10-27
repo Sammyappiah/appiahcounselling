@@ -9,11 +9,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#F9F9F6", // soft warm white
-        text: "#2E2E2E", // charcoal grey
-        accent: "#4A5D73", // deep slate blue
-        sand: "#D8C3A5", // dusty sand
-        terracotta: "#B36A5E", // muted terracotta
+        background: "#FAFAFA", // soft neutral background
+        text: "#333333", // dark grey text
+        accent: "#E66000", // Appiah orange
+        softgray: "#B0B0B0", // subtle grey
+        sand: "#E5DED4", // soft divider
+        white: "#FFFFFF",
       },
       fontFamily: {
         sans: ["Inter", "sans-serif"],
