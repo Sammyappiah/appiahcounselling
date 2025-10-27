@@ -2,21 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Use native CSS colors — no Tailwind theme() or @apply custom names */
 html, body {
-  background-color: theme('colors.background');
-  color: theme('colors.text');
+  background-color: #FAFAFA;
+  color: #2E2E2E;
   font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
   scroll-behavior: smooth;
 }
 
+/* Link styling */
 a {
-  @apply text-accent hover:text-terracotta transition;
+  color: #E85C0D;
+  transition: color 0.3s ease;
+}
+a:hover {
+  color: #C24A09;
 }
 
-h1, h2, h3 {
-  @apply font-light tracking-tight;
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 300;
+  letter-spacing: -0.02em;
 }
 
+/* Buttons */
 button {
-  @apply rounded-full px-6 py-3 font-medium transition duration-300;
+  border-radius: 9999px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
 }

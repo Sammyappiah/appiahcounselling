@@ -9,13 +9,10 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#FAFAFA", // soft neutral background
-        text: "#2E2E2E", // dark grey for body text
-        accent: "#E85C0D", // warm orange brand tone
-        accentDark: "#C24A09", // darker orange for hover
-        sand: "#E4DDD5", // subtle beige divider
-        graylight: "#B6B6B6", // light grey for secondary text
-        white: "#FFFFFF", // white base
+        accent: "#E85C0D",
+        accentDark: "#C24A09",
+        sand: "#E4DDD5",
+        graylight: "#B6B6B6",
       },
       fontFamily: {
         sans: ["Inter", "sans-serif"],
