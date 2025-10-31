@@ -1,35 +1,112 @@
+/* ------------------------------
+   Global Styles for Appiah Counselling
+   Calm, elegant, and premium aesthetic
+-------------------------------- */
+
+/* Import Google Fonts — must come first */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
+
+/* Tailwind base + utilities */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Use native CSS colors — no Tailwind theme() or @apply custom names */
-html, body {
-  background-color: #FAFAFA;
-  color: #2E2E2E;
-  font-family: 'Inter', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  scroll-behavior: smooth;
+/* Root Styles */
+:root {
+  --cream: #FAF9F7;
+  --beige: #E4DDD5;
+  --brown: #B85B35;
+  --text-dark: #2E2E2E;
+  --text-soft: #4B4B4B;
 }
 
-/* Link styling */
-a {
-  color: #E85C0D;
-  transition: color 0.3s ease;
-}
-a:hover {
-  color: #C24A09;
+/* Base typography */
+html, body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--cream);
+  color: var(--text-dark);
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  line-height: 1.6;
+  font-size: 16px;
 }
 
 /* Headings */
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 300;
-  letter-spacing: -0.02em;
+h1, h2, h3, h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  color: var(--text-dark);
+  letter-spacing: 0.02em;
 }
 
-/* Buttons */
-button {
-  border-radius: 9999px;
-  padding: 0.75rem 1.5rem;
-  font-weight: 500;
+/* Links */
+a {
+  color: var(--text-dark);
+  text-decoration: none;
   transition: all 0.3s ease;
+}
+a:hover {
+  color: var(--brown);
+}
+
+/* Navigation */
+nav a {
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.03em;
+  font-weight: 400;
+  text-transform: none;
+}
+
+/* Hero Section */
+main {
+  background-color: var(--cream);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+/* Overlay */
+main::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(250, 249, 247, 0.7);
+  z-index: 0;
+}
+
+/* Testimonial Blockquote */
+blockquote {
+  font-style: italic;
+  color: var(--text-soft);
+  border-left: 3px solid var(--beige);
+  padding-left: 1rem;
+}
+
+/* Footer */
+footer {
+  background-color: rgba(250, 249, 247, 0.95);
+  border-top: 1px solid var(--beige);
+  color: #777;
+  font-size: 0.9rem;
+}
+
+/* Subtle animation for nav + hover transitions */
+header nav a,
+footer a {
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+header nav a:hover,
+footer a:hover {
+  color: var(--brown);
+  opacity: 0.85;
+}
+
+/* Smooth fade-in effect */
+body {
+  animation: fadeIn 0.8s ease-in-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
