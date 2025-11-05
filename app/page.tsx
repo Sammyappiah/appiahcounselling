@@ -1,181 +1,144 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import Link from 'next/link';
-import { useEffect, useRef } from 'react';
-import { Cormorant_Garamond, Inter } from 'next/font/google';
-
-const serif = Cormorant_Garamond({
-  subsets: ['latin'],
-  weight: ['500', '600'],
-  variable: '--font-serif',
-});
-const sans = Inter({
-  subsets: ['latin'],
-  weight: ['400', '500', '600'],
-  variable: '--font-sans',
-});
-
-const TESTIMONIALS: string[] = [
-  `I've had 3 sessions so far and cannot recommend Samuel enough. I have felt uplifted and my confidence is growing day by day after these sessions. He has taught me coping mechanisms and how to manage or change certain thoughts/behaviours that were holding me back, and I feel like my mindset and perspective are shifting for the better. He is extremely positive, has amazing knowledge, is friendly and so easy to get on with. Highly recommend!`,
-  `We’ve only had our first session, but we left feeling energized and hopeful. I look forward to our next sessions!`,
-  `We have had 3 sessions with Samuel and although the sessions are hard, he is patient with us, caring, and works to constantly understand both sides without judgement.`,
-  `Samuel has really been supportive, respectful and listened in all the sessions we've had with him. His communication skills are outstanding and I’d recommend him 100%.`,
-  `We have not been working with Sam for very long, yet his sessions have been truly transformative. He listens deeply to needs we are aware of and those we are not. The challenges/homework he sets are impactful and help us in between sessions. He is easy to talk to and makes us both feel comfortable. Highly recommend and we look forward to future sessions.`,
-  `Samuel has been who I needed at this time of my life. He has listened without judgement, offered advice, and helped me set challenges and goals to improve my emotional resilience. I highly recommend Samuel.`,
-  `Samuel is great—mindful and experienced. He understands my concerns and offers insight that helps me improve different aspects of my life.`,
-  `Amazing therapist!!`,
-  `I’ve seen great progress with the help of Sam—very easy to talk to, a great listener, thoughtful advice. Definitely recommend getting in touch!`,
-  `Grateful for my exchanges with Samuel.`,
-  `Samuel makes everything easy.`,
-];
+import { useEffect, useRef } from "react";
 
 export default function Home() {
-  const scrollRef = useRef<HTMLDivElement | null>(null);
+  const railRef = useRef<HTMLDivElement | null>(null);
 
-  // Continuous horizontal auto-scroll
+  const scrollByCards = (dir: "next" | "prev") => {
+    const rail = railRef.current;
+    if (!rail) return;
+    const card = rail.querySelector<HTMLElement>("[data-card]");
+    const delta = card ? card.offsetWidth + 24 : 360;
+    rail.scrollBy({ left: dir === "next" ? delta : -delta, behavior: "smooth" });
+  };
+
   useEffect(() => {
-    const container = scrollRef.current;
-    if (!container) return;
-    let scrollAmount = 0;
-    let paused = false;
+    const rail = railRef.current;
+    if (!rail) return;
 
-    const scroll = () => {
-      if (!paused) {
-        scrollAmount += 0.3; // Adjust speed here (0.3 = smooth, slow drift)
-        container.scrollLeft = scrollAmount;
-        if (scrollAmount >= container.scrollWidth / 2) scrollAmount = 0;
-      }
-      requestAnimationFrame(scroll);
-    };
-    scroll();
+    let stopped = false;
+    const stop = () => (stopped = true);
+    rail.addEventListener("pointerdown", stop, { once: true, passive: true });
+    rail.addEventListener("wheel", stop, { once: true, passive: true });
 
-    container.addEventListener('mouseenter', () => (paused = true));
-    container.addEventListener('mouseleave', () => (paused = false));
+    const id = setInterval(() => {
+      if (stopped) return;
+      scrollByCards("next");
+      const atEnd =
+        Math.abs(rail.scrollWidth - rail.clientWidth - rail.scrollLeft) < 8;
+      if (atEnd) rail.scrollTo({ left: 0, behavior: "smooth" });
+    }, 3800);
 
-    return () => {
-      container.removeEventListener('mouseenter', () => (paused = true));
-      container.removeEventListener('mouseleave', () => (paused = false));
-    };
+    return () => clearInterval(id);
   }, []);
 
+  const quotes = [
+    `I've had 3 sessions so far and cannot recommend Samuel enough. I have felt uplifted and my confidence is growing day by day after these sessions. He has taught me coping mechanisms and how to manage or change certain thoughts/behaviours that were holding me back and I feel like my mindframe/perspective is shifting for the better. He is extremely positive and has amazing knowledge, friendly and so easy to get on with. Highly recommend!`,
+    `We’ve only had our first session, but we left feeling energized and hopeful. I look forward to our next sessions!`,
+    `We have had 3 sessions with Samuel and although the sessions are hard, he is patient with us, caring and working to constantly understand both sides without judgement.`,
+    `Samuel has really been supportive, respectful and listened in all the sessions we’ve had with him. His communication skills are outstanding and I’d recommend him 100%.`,
+    `We have not been working with Sam for very long, yet his sessions have been truly transformative. He is great at listening and understanding our needs, both the ones we are aware of and those we are not. The challenges or homework he sets are impactful and have helped us continue in between sessions. He is easy to talk to and makes us both feel comfortable. I highly recommend him and look forward to our future sessions together. Thank you.`,
+    `Samuel has been who I needed at this time of my life. He has listened without judgement, offered advice and helped me set challenges and goals to improve my emotional resilience. I highly recommend Samuel.`,
+    `Samuel is great, mindful and an experienced therapist who understands my concerns and issues. He provides great insight into things that give me opportunities to improve my life in different aspects. Great individual.`,
+    `Amazing therapist!!`,
+    `I’ve seen great progress with the help of Sam — very easy to talk to, great listener, lovely advice. Definitely would recommend getting in touch!`,
+    `Grateful for my exchanges with Samuel.`,
+    `Samuel makes everything easy.`,
+  ];
+
   return (
-    <main
-      className={`${serif.variable} ${sans.variable} bg-[#FDFBF9] text-[#1A1A1A] min-h-screen`}
-      style={{ fontFamily: 'var(--font-sans)' }}
-    >
-      {/* HEADER */}
-      <header className="sticky top-0 z-50 w-full bg-[#FDFBF9]/95 backdrop-blur border-b border-[#E3DAD0] shadow-[0_6px_18px_rgba(0,0,0,0.08)]">
-        <div className="mx-auto max-w-7xl px-8">
-          <div className="flex items-center justify-between h-[120px]">
-            <Link href="/" className="flex items-center">
-              <Image
-                src="/logo.png"
-                alt="Appiah Counselling Logo"
-                width={340}
-                height={90}
-                priority
-                className="w-[340px] h-auto object-contain"
-              />
-            </Link>
-
-            <nav
-              className="flex items-center justify-center gap-[70px] tracking-wide pr-[5vw]"
-              aria-label="Primary"
-            >
-              {[
-                { href: '/', label: 'Home' },
-                { href: '/about', label: 'About' },
-                { href: '/booking', label: 'Booking' },
-                { href: '/contact', label: 'Contact' },
-              ].map(item => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="text-[22px] font-semibold text-[#111111] relative transition-all duration-300 hover:text-[#A04B2E] after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-[#B85B35] hover:after:w-full after:transition-all"
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </nav>
-          </div>
-        </div>
-        <div className="h-[4px] bg-gradient-to-r from-[#B85B35] to-[#E3C9B0]" />
-      </header>
-
-      {/* INTRO */}
-      <section className="text-center pt-[140px] pb-[120px] px-6 fade-in">
-        <h1
-          className="text-[48px] mb-6 text-[#120C08]"
-          style={{ fontFamily: 'var(--font-serif)', fontWeight: 600 }}
-        >
+    <main className="bg-[#FDFBF9] text-[#111111] min-h-screen font-sans">
+      {/* Hero Section */}
+      <section className="text-center pt-[140px] md:pt-[150px] pb-[80px] px-6 fade-up">
+        <h1 className="text-[40px] md:text-[48px] leading-tight mb-5 font-serif font-semibold">
           Appiah Counselling
         </h1>
-        <div className="w-[80px] h-[4px] bg-[#B85B35] mx-auto mb-10 rounded-full" />
-        <p className="max-w-[750px] mx-auto text-[22px] leading-[1.8] text-[#181818]">
-          Counselling for individuals and couples, a calm, safe, and confidential space for
-          clarity and growth.
+        <div className="w-[72px] h-[4px] bg-[#B85B35] mx-auto mb-8 rounded-full" />
+        <p className="max-w-[720px] mx-auto text-[18px] md:text-[20px] leading-[1.85]">
+          Calm, confidential therapy for individuals and couples — space to
+          reflect, realign, and move forward with clarity.
         </p>
       </section>
 
-      {/* TESTIMONIALS */}
+      {/* Testimonials Section */}
       <section
-        aria-labelledby="testimonials-title"
-        className="relative mx-auto max-w-[900px] px-6 pb-[140px] text-center"
+        id="testimonials"
+        className="relative bg-gradient-to-b from-[#FDFBF9] via-[#FCF9F5] to-white py-[160px] px-6 fade-up"
       >
-        <h2
-          id="testimonials-title"
-          className="text-[34px] mb-10 text-[#2B1E10]"
-          style={{ fontFamily: 'var(--font-serif)', fontWeight: 600 }}
-        >
-          Client Testimonials
-        </h2>
+        <div className="text-center mb-16">
+          <h2 className="text-[34px] md:text-[40px] font-serif font-semibold mb-4">
+            Client Testimonials
+          </h2>
+          <div className="w-[72px] h-[4px] bg-[#B85B35] mx-auto rounded-full" />
+        </div>
 
-        {/* Fade mask gradients */}
-        <div className="absolute left-0 top-0 h-full w-[100px] bg-gradient-to-r from-[#FDFBF9] to-transparent pointer-events-none z-10" />
-        <div className="absolute right-0 top-0 h-full w-[100px] bg-gradient-to-l from-[#FDFBF9] to-transparent pointer-events-none z-10" />
-
-        <div
-          ref={scrollRef}
-          className="flex overflow-x-scroll no-scrollbar gap-8 rounded-3xl bg-[#FBF8F4] shadow-md border border-[#E6D9C8] p-8 scroll-smooth"
-          style={{ scrollBehavior: 'smooth' }}
-        >
-          {[...TESTIMONIALS, ...TESTIMONIALS].map((quote, i) => (
-            <article
-              key={i}
-              className="min-w-[320px] max-w-[340px] flex-shrink-0 bg-white rounded-2xl shadow-sm border border-[#EDE7E1] p-8 text-left transition-transform duration-300 hover:-translate-y-1"
-            >
-              <blockquote
-                className="text-[18px] leading-[1.8] text-[#1A1A1A] italic"
-                style={{ fontFamily: 'var(--font-serif)' }}
+        <div className="max-w-[1200px] mx-auto relative">
+          {/* Horizontal Scroll Rail */}
+          <div
+            ref={railRef}
+            className="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar pb-8 px-1"
+            aria-label="Testimonials carousel"
+          >
+            {quotes.map((q, i) => (
+              <article
+                key={i}
+                data-card
+                className="relative min-w-[320px] sm:min-w-[380px] lg:min-w-[420px] bg-[#FCF9F5] border border-[#E6D8CA] rounded-3xl shadow-sm p-10 md:p-12 snap-center flex-shrink-0 h-[360px] flex items-center justify-center"
               >
-                “{quote}”
-              </blockquote>
-            </article>
-          ))}
+                <span className="pointer-events-none select-none absolute -top-6 left-3 text-[140px] leading-none text-[#E8D6C2]/50 font-serif">
+                  “
+                </span>
+                <blockquote className="relative z-10 text-center italic text-[17px] md:text-[18px] leading-[1.9] max-w-[460px] mx-auto">
+                  {q}
+                </blockquote>
+              </article>
+            ))}
+          </div>
+
+          {/* Carousel Controls */}
+          <div className="mt-10 flex items-center justify-center gap-4">
+            <button
+              aria-label="Previous testimonials"
+              onClick={() => scrollByCards("prev")}
+              className="rounded-full border border-[#B85B35]/30 bg-white px-5 py-2 text-sm hover:shadow transition-shadow"
+            >
+              ←
+            </button>
+            <button
+              aria-label="Next testimonials"
+              onClick={() => scrollByCards("next")}
+              className="rounded-full border border-[#B85B35]/30 bg-white px-5 py-2 text-sm hover:shadow transition-shadow"
+            >
+              →
+            </button>
+          </div>
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="border-t border-[#E2D3C2] bg-[#F6F1EB] text-[#3B2E20] text-[17px] py-[70px] text-center">
-        <div className="h-[3px] w-full bg-[#B85B35] mb-6" />
-        © 2023 Appiah Counselling — All Rights Reserved
-      </footer>
+      {/* Subtle Gradient Divider */}
+      <div className="h-[3px] w-full bg-gradient-to-r from-[#B85B35] to-[#E3C9B0]" />
 
-      <style jsx global>{`
-        .fade-in {
+      {/* Local Styles */}
+      <style jsx>{`
+        .fade-up {
           opacity: 0;
           transform: translateY(20px);
-          animation: fadeIn 1.2s ease-out forwards;
+          animation: fadeUp 0.9s ease-out forwards;
         }
-        @keyframes fadeIn {
+        @keyframes fadeUp {
           to {
             opacity: 1;
             transform: translateY(0);
           }
         }
+
         .no-scrollbar::-webkit-scrollbar {
           display: none;
+        }
+        .no-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
         }
       `}</style>
     </main>

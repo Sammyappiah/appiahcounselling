@@ -1,112 +1,87 @@
-/* ------------------------------
-   Global Styles for Appiah Counselling
-   Calm, elegant, and premium aesthetic
--------------------------------- */
-
-/* Import Google Fonts — must come first */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
-
-/* Tailwind base + utilities */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Root Styles */
-:root {
-  --cream: #FAF9F7;
-  --beige: #E4DDD5;
-  --brown: #B85B35;
-  --text-dark: #2E2E2E;
-  --text-soft: #4B4B4B;
-}
-
-/* Base typography */
-html, body {
-  font-family: 'Inter', sans-serif;
-  background-color: var(--cream);
-  color: var(--text-dark);
+/* ---------- GLOBAL RESETS ---------- */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* ---------- TYPOGRAPHY ---------- */
+html {
   scroll-behavior: smooth;
-  line-height: 1.6;
-  font-size: 16px;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-/* Headings */
-h1, h2, h3, h4 {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 500;
-  color: var(--text-dark);
-  letter-spacing: 0.02em;
+/* ---------- CUSTOM UTILS ---------- */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1.2s ease-in-out forwards;
 }
 
-/* Links */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- SCROLLBAR HIDE ---------- */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ---------- LINKS & TRANSITIONS ---------- */
 a {
-  color: var(--text-dark);
   text-decoration: none;
-  transition: all 0.3s ease;
-}
-a:hover {
-  color: var(--brown);
+  transition: color 0.3s ease;
 }
 
-/* Navigation */
-nav a {
-  font-family: 'Inter', sans-serif;
-  letter-spacing: 0.03em;
-  font-weight: 400;
-  text-transform: none;
-}
-
-/* Hero Section */
-main {
-  background-color: var(--cream);
-  background-size: cover;
-  background-position: center;
-  position: relative;
-}
-
-/* Overlay */
-main::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(250, 249, 247, 0.7);
-  z-index: 0;
-}
-
-/* Testimonial Blockquote */
-blockquote {
-  font-style: italic;
-  color: var(--text-soft);
-  border-left: 3px solid var(--beige);
-  padding-left: 1rem;
-}
-
-/* Footer */
+/* ---------- FOOTER SPACING FIX ---------- */
 footer {
-  background-color: rgba(250, 249, 247, 0.95);
-  border-top: 1px solid var(--beige);
-  color: #777;
-  font-size: 0.9rem;
-}
-
-/* Subtle animation for nav + hover transitions */
-header nav a,
-footer a {
-  transition: color 0.3s ease, opacity 0.3s ease;
-}
-header nav a:hover,
-footer a:hover {
-  color: var(--brown);
-  opacity: 0.85;
-}
-
-/* Smooth fade-in effect */
-body {
-  animation: fadeIn 0.8s ease-in-out;
+  margin-top: 80px;
 }
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 1.2s ease-out;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-out both;
 }
