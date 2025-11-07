@@ -2,86 +2,77 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ---------- GLOBAL RESETS ---------- */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* Base styling */
+html, body {
+  @apply bg-gradient-to-b from-[#FCFAF7] to-[#F7F3EE] text-[#111] antialiased;
 }
 
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+/* --- Navigation styling --- */
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem; /* adds visible spacing between links */
+  letter-spacing: 0.05em;
 }
 
-/* ---------- TYPOGRAPHY ---------- */
-html {
-  scroll-behavior: smooth;
-  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-}
-
-/* ---------- CUSTOM UTILS ---------- */
-.fade-in {
-  opacity: 0;
-  animation: fadeIn 1.2s ease-in-out forwards;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ---------- SCROLLBAR HIDE ---------- */
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-/* ---------- LINKS & TRANSITIONS ---------- */
-a {
+.site-nav a {
+  position: relative;
+  color: #111;
   text-decoration: none;
-  transition: color 0.3s ease;
+  font-weight: 500;
+  transition: color 0.25s ease;
 }
 
-/* ---------- FOOTER SPACING FIX ---------- */
-footer {
-  margin-top: 80px;
-}
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.site-nav a:hover {
+  color: #B85B35;
 }
 
-.animate-fadeIn {
-  animation: fadeIn 1.2s ease-out;
-}
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.site-nav a:visited {
+  color: #111;
 }
 
-.fade-in {
-  animation: fadeIn 1s ease-out both;
+.site-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  height: 2px;
+  width: 0;
+  background: #B85B35;
+  transition: width 300ms ease;
+}
+
+.site-nav a:hover::after {
+  width: 100%;
+}
+
+/* --- Testimonial text centering fix --- */
+.testimonial-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  background: #FCF9F5;
+  border: 1px solid #E8E1D9;
+  border-radius: 22px;
+  box-shadow: 0 12px 28px rgba(17, 17, 17, 0.06);
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonial-slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2rem;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.7s ease-in-out;
+}
+
+.testimonial-slide.active {
+  opacity: 1;
 }

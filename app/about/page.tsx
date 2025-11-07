@@ -1,72 +1,39 @@
 "use client";
 
-import Image from "next/image";
-import { useEffect } from "react";
-
-export default function About() {
-  useEffect(() => {
-    const elements = document.querySelectorAll(".fade-up");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) entry.target.classList.add("visible");
-        });
-      },
-      { threshold: 0.2 }
-    );
-    elements.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
-
+export default function AboutPage() {
   return (
-    <main className="bg-[#FDFBF9] text-[#111111] min-h-screen font-sans">
-      {/* Hero Section */}
-      <section className="text-center pt-[160px] pb-[100px] px-6 fade-up">
-        <h1 className="text-[48px] mb-4 font-serif font-semibold">About</h1>
-        <div className="w-[80px] h-[4px] bg-[#B85B35] mx-auto mb-8 rounded-full" />
-        <p className="max-w-[720px] mx-auto text-[22px] leading-[1.8] font-light mt-8">
+    <main className="min-h-screen text-[#111] bg-[#FCFAF7]">
+      <section className="pt-24 text-center">
+        <h1 className="font-serif text-[44px] md:text-[54px] font-semibold">About</h1>
+        {/* Orange line same length as "About" */}
+        <div className="h-[3px] bg-[#D38B5D] mx-auto mt-3 mb-6 rounded-full inline-block w-[5ch]" />
+        <p className="text-[17px] md:text-[18px] text-[#333]/90 mb-10">
           Calm. Connected. Compassionate.
         </p>
       </section>
 
-      {/* Contained Image */}
-      <section className="relative max-w-5xl mx-auto px-6 fade-up mb-[100px]">
-        <div className="relative rounded-3xl shadow-lg border border-[#E6D8CA] bg-[#FCF9F5] p-2">
-          <div className="relative w-full h-[360px] md:h-[420px] overflow-hidden rounded-[20px]">
-            <Image
+      <section className="pb-24">
+        <div className="mx-auto w-full px-6">
+          <article className="mx-auto w-full md:w-[900px] bg-white/70 border border-[#E7E1D8] rounded-2xl shadow-[0_18px_48px_rgba(0,0,0,0.06)] overflow-hidden">
+            <img
               src="/couple.jpeg"
-              alt="Couple in therapy session"
-              fill
-              className="object-contain object-[center_top]"
-              sizes="(max-width: 768px) 100vw, 900px"
-              priority={false}
+              alt="Therapy session"
+              className="block w-full h-[420px] object-cover object-center"
             />
-          </div>
+            <div className="px-8 md:px-10 py-10 text-center md:text-left max-w-[720px] mx-auto space-y-6">
+              <p className="text-[18px] text-[#333] leading-relaxed">
+                In a calm setting, you can breathe and simply be.
+              </p>
+              <p className="text-[18px] text-[#333] leading-relaxed">
+                Through a connected exchange, your voice finds space to unfold.
+              </p>
+              <p className="text-[18px] text-[#333] leading-relaxed">
+                A compassionate approach ensures you feel genuinely supported throughout your journey.
+              </p>
+            </div>
+          </article>
         </div>
       </section>
-
-      {/* Description */}
-      <section className="text-center max-w-[750px] mx-auto px-6 fade-up pb-[140px]">
-        <p className="text-[20px] leading-[1.9] font-light">
-          A calm, safe, and confidential environment for individuals and couples
-          to explore challenges, strengthen emotional resilience, and rediscover clarity
-          and connection through compassionate, evidence based therapy.
-        </p>
-      </section>
-
-      {/* Divider */}
-
-      <style jsx>{`
-        .fade-up {
-          opacity: 0;
-          transform: translateY(40px);
-          transition: all 1.2s ease-out;
-        }
-        .fade-up.visible {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      `}</style>
     </main>
   );
 }
