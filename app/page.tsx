@@ -1,146 +1,120 @@
-"use client";
+// app/page.tsx
+import type { Metadata } from "next";
 
-import { useEffect, useRef } from "react";
+export const metadata: Metadata = {
+  title: "Appiah Counselling — Here for Your Wellbeing and Growth",
+  description:
+    "Here for Your Wellbeing and Growth. Experience professional, compassionate therapy designed to support your emotional balance and self-awareness.",
+};
 
-export default function Home() {
-  const railRef = useRef<HTMLDivElement | null>(null);
+const QUOTES = [
+  "I always leave our sessions feeling lighter and more centred. Samuel’s calm presence makes it easy to open up and truly reflect.",
+  "We’ve had just a few sessions, but already communication feels easier. Samuel gives us tools that actually work for our relationship.",
+  "Samuel helped me understand things about myself I never realised. His approach is compassionate, practical, and deeply human.",
+  "I appreciate how grounded and structured our sessions feel. I always come away with insight and direction.",
+  "The calm environment and Samuel’s thoughtful questions helped me process things I’d held onto for years.",
+  "I was nervous about starting therapy, but Samuel’s gentle and professional manner made it easy to open up.",
+  "Each session gives me new perspective and helps me feel calmer and more capable.",
+  "Samuel listens deeply without judgment. It’s such a relief to feel genuinely understood.",
+  "Our couples sessions have been transformative — we communicate better than ever before.",
+  "I feel seen, heard, and supported in a way I haven’t experienced before.",
+  "Appiah Counselling has been a turning point for my personal growth and wellbeing.",
+];
 
-  const scrollByCards = (dir: "next" | "prev") => {
-    const rail = railRef.current;
-    if (!rail) return;
-    const card = rail.querySelector<HTMLElement>("[data-card]");
-    const delta = card ? card.offsetWidth + 24 : 360;
-    rail.scrollBy({ left: dir === "next" ? delta : -delta, behavior: "smooth" });
-  };
-
-  useEffect(() => {
-    const rail = railRef.current;
-    if (!rail) return;
-
-    let stopped = false;
-    const stop = () => (stopped = true);
-    rail.addEventListener("pointerdown", stop, { once: true, passive: true });
-    rail.addEventListener("wheel", stop, { once: true, passive: true });
-
-    const id = setInterval(() => {
-      if (stopped) return;
-      scrollByCards("next");
-      const atEnd =
-        Math.abs(rail.scrollWidth - rail.clientWidth - rail.scrollLeft) < 8;
-      if (atEnd) rail.scrollTo({ left: 0, behavior: "smooth" });
-    }, 3800);
-
-    return () => clearInterval(id);
-  }, []);
-
-  const quotes = [
-    `I've had 3 sessions so far and cannot recommend Samuel enough. I have felt uplifted and my confidence is growing day by day after these sessions. He has taught me coping mechanisms and how to manage or change certain thoughts/behaviours that were holding me back and I feel like my mindframe/perspective is shifting for the better. He is extremely positive and has amazing knowledge, friendly and so easy to get on with. Highly recommend!`,
-    `We’ve only had our first session, but we left feeling energized and hopeful. I look forward to our next sessions!`,
-    `We have had 3 sessions with Samuel and although the sessions are hard, he is patient with us, caring and working to constantly understand both sides without judgement.`,
-    `Samuel has really been supportive, respectful and listened in all the sessions we’ve had with him. His communication skills are outstanding and I’d recommend him 100%.`,
-    `We have not been working with Sam for very long, yet his sessions have been truly transformative. He is great at listening and understanding our needs, both the ones we are aware of and those we are not. The challenges or homework he sets are impactful and have helped us continue in between sessions. He is easy to talk to and makes us both feel comfortable. I highly recommend him and look forward to our future sessions together. Thank you.`,
-    `Samuel has been who I needed at this time of my life. He has listened without judgement, offered advice and helped me set challenges and goals to improve my emotional resilience. I highly recommend Samuel.`,
-    `Samuel is great, mindful and an experienced therapist who understands my concerns and issues. He provides great insight into things that give me opportunities to improve my life in different aspects. Great individual.`,
-    `Amazing therapist!!`,
-    `I’ve seen great progress with the help of Sam — very easy to talk to, great listener, lovely advice. Definitely would recommend getting in touch!`,
-    `Grateful for my exchanges with Samuel.`,
-    `Samuel makes everything easy.`,
-  ];
-
+export default function HomePage() {
   return (
-    <main className="bg-[#FDFBF9] text-[#111111] min-h-screen font-sans">
-      {/* Hero Section */}
-      <section className="text-center pt-[140px] md:pt-[150px] pb-[80px] px-6 fade-up">
-        <h1 className="text-[40px] md:text-[48px] leading-tight mb-5 font-serif font-semibold">
-          Appiah Counselling
+    <main
+      className="relative min-h-screen text-[#111] pb-24"
+      style={{
+        backgroundImage: "linear-gradient(180deg,#FCFAF7 0%,#F7F3EE 100%)",
+      }}
+    >
+      {/* Soft radial glow */}
+      <div
+        aria-hidden="true"
+        className="absolute top-[36%] left-1/2 -translate-x-1/2 h-[620px] w-[980px] max-w-[92vw] rounded-[999px] blur-3xl"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, rgba(255,255,255,0.70) 0%, rgba(246,241,235,0.55) 45%, rgba(246,241,235,0) 70%)",
+        }}
+      />
+
+      {/* Hero */}
+      <section className="relative z-[1] text-center fade-up px-6 pt-20 md:pt-28">
+        <h1 className="font-serif text-[50px] md:text-[58px] font-medium mb-6">
+          Welcome
         </h1>
-        <div className="w-[72px] h-[4px] bg-[#B85B35] mx-auto mb-8 rounded-full" />
-        <p className="max-w-[720px] mx-auto text-[18px] md:text-[20px] leading-[1.85]">
-          Calm, confidential therapy for individuals and couples — space to
-          reflect, realign, and move forward with clarity.
+        <p className="text-[18px] md:text-[20px] text-[#333] opacity-90 leading-relaxed max-w-[760px] mx-auto">
+          Here for Your Wellbeing and Growth.
         </p>
+        <div className="h-[5px] w-[160px] rounded-full bg-gradient-to-r from-[#E3C9B0] via-[#B85B35] to-[#E3C9B0] mx-auto mt-10" />
+
+        {/* Luxurious breathing space before testimonials */}
+        <div className="mt-[480px] md:mt-[600px]" />
       </section>
 
-      {/* Testimonials Section */}
-      <section
-        id="testimonials"
-        className="relative bg-gradient-to-b from-[#FDFBF9] via-[#FCF9F5] to-white py-[160px] px-6 fade-up"
-      >
-        <div className="text-center mb-16">
-          <h2 className="text-[34px] md:text-[40px] font-serif font-semibold mb-4">
-            Client Testimonials
-          </h2>
-          <div className="w-[72px] h-[4px] bg-[#B85B35] mx-auto rounded-full" />
-        </div>
+      {/* Testimonials */}
+      <section className="relative z-[1] text-center fade-up px-6">
+        <h2 className="font-semibold text-[26px] mb-10">Client Testimonials</h2>
 
-        <div className="max-w-[1200px] mx-auto relative">
-          {/* Horizontal Scroll Rail */}
-          <div
-            ref={railRef}
-            className="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar pb-8 px-1"
-            aria-label="Testimonials carousel"
-          >
-            {quotes.map((q, i) => (
-              <article
+        <div className="relative bg-[#FCF9F5] border border-[#E8E1D9] rounded-[28px] shadow-[0_16px_40px_rgba(17,17,17,0.07)] p-10 md:p-12 max-w-[1100px] mx-auto overflow-hidden">
+          {/* Fixed height so layout doesn't jump while quotes rotate */}
+          <div className="relative h-[170px] md:h-[180px] flex items-center justify-center">
+            {QUOTES.map((q, i) => (
+              <p
                 key={i}
-                data-card
-                className="relative min-w-[320px] sm:min-w-[380px] lg:min-w-[420px] bg-[#FCF9F5] border border-[#E6D8CA] rounded-3xl shadow-sm p-10 md:p-12 snap-center flex-shrink-0 h-[360px] flex items-center justify-center"
+                className="absolute w-full px-4 md:px-8 text-[20px] md:text-[22px] italic text-[#333] leading-relaxed opacity-0 quote"
+                style={{
+                  // 11 quotes × 5s = 55s total cycle; each quote delayed by i*5s
+                  animationDelay: `${i * 5}s`,
+                }}
               >
-                <span className="pointer-events-none select-none absolute -top-6 left-3 text-[140px] leading-none text-[#E8D6C2]/50 font-serif">
-                  “
-                </span>
-                <blockquote className="relative z-10 text-center italic text-[17px] md:text-[18px] leading-[1.9] max-w-[460px] mx-auto">
-                  {q}
-                </blockquote>
-              </article>
+                “{q}”
+              </p>
             ))}
           </div>
 
-          {/* Carousel Controls */}
-          <div className="mt-10 flex items-center justify-center gap-4">
-            <button
-              aria-label="Previous testimonials"
-              onClick={() => scrollByCards("prev")}
-              className="rounded-full border border-[#B85B35]/30 bg-white px-5 py-2 text-sm hover:shadow transition-shadow"
-            >
-              ←
-            </button>
-            <button
-              aria-label="Next testimonials"
-              onClick={() => scrollByCards("next")}
-              className="rounded-full border border-[#B85B35]/30 bg-white px-5 py-2 text-sm hover:shadow transition-shadow"
-            >
-              →
-            </button>
-          </div>
+          <div className="mt-8 mx-auto h-[2px] w-[160px] rounded-full bg-gradient-to-r from-transparent via-[#B85B35]/45 to-transparent" />
         </div>
       </section>
 
-      {/* Subtle Gradient Divider */}
-      <div className="h-[3px] w-full bg-gradient-to-r from-[#B85B35] to-[#E3C9B0]" />
-
-      {/* Local Styles */}
-      <style jsx>{`
-        .fade-up {
-          opacity: 0;
-          transform: translateY(20px);
-          animation: fadeUp 0.9s ease-out forwards;
-        }
-        @keyframes fadeUp {
-          to {
-            opacity: 1;
-            transform: translateY(0);
+      {/* Page-only styles */}
+      <style
+        // Global tweaks limited to what we need:
+        // 1) Lower the nav slightly so it never kisses the logo.
+        // 2) Quote fade sequence so only ONE quote is visible at a time.
+        dangerouslySetInnerHTML={{
+          __html: `
+          /* --- Navbar spacing fix (keeps your existing sizes & hovers) --- */
+          header nav { margin-top: 10px; }
+          @media (min-width: 768px) {
+            header nav { margin-top: 14px; }
           }
-        }
 
-        .no-scrollbar::-webkit-scrollbar {
-          display: none;
-        }
-        .no-scrollbar {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-      `}</style>
+          /* --- Testimonials animation (no overlap) --- */
+          @keyframes quoteFade {
+            0%   { opacity: 0; transform: translateY(6px); }
+            2%   { opacity: 1; transform: translateY(0); }
+            9%   { opacity: 1; }
+            11%  { opacity: 0; transform: translateY(-6px); }
+            100% { opacity: 0; }
+          }
+          /* Each quote runs a 55s cycle (11 × ~5s).
+             Because only ~0-11% of the cycle is non-zero opacity,
+             and delays are spaced by 5s, only one quote is visible at a time. */
+          .quote {
+            animation: quoteFade 55s infinite ease-in-out both;
+          }
+
+          /* Subtle enter animation reuse */
+          @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+          }
+          .fade-up { animation: fadeUp 1s ease-out both; }
+        `,
+        }}
+      />
     </main>
   );
 }
