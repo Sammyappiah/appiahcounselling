@@ -104,3 +104,22 @@ a { text-decoration: none; color: inherit; }
 .mobile-link:last-child {
   border-bottom: none;
 }
+/* app/globals.css */
+
+/* Reset link styling site-wide: no blue, no underline */
+a,
+.nav-link {
+  color: #111 !important;
+  text-decoration: none !important;
+}
+.nav-link:hover {
+  color: #5E8164 !important;
+}
+
+/* Optional: hide scrollbars where we use carousels (not needed now but safe) */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Fade-up utility (if you want to reuse) */
+.fade-up { opacity: 0; transform: translateY(24px); transition: all 0.8s ease; }
+.fade-up.visible { opacity: 1; transform: translateY(0); }
