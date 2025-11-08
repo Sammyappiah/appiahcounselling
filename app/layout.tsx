@@ -18,8 +18,8 @@ export default function RootLayout({
         {/* Fixed Header */}
         <Header />
 
-        {/* Ensure page titles like “Welcome” aren’t hidden */}
-        <main className="flex-grow pt-56 md:pt-64">{children}</main>
+        {/* Add top padding so page titles are never hidden */}
+        <main className="flex-grow pt-[160px] md:pt-[200px]">{children}</main>
 
         {/* Footer */}
         <footer className="w-full text-center py-6 border-t border-[#E7E1D8]/60 text-sm text-[#444] bg-[#FCFAF7]">
