@@ -1,21 +1,20 @@
-// app/page.tsx
 import Testimonials from "@/components/Testimonials";
 
 export default function HomePage() {
   return (
-    <div>
-      <section className="text-center">
-        <h1 className="font-serif text-[44px] md:text-[54px] font-semibold mb-4">
-          Welcome
+    <>
+      <section className="text-center px-6">
+        <h1 className="font-serif text-[40px] md:text-[48px] leading-tight mb-5">
+          Appiah Counselling
         </h1>
-        <div className="h-[3px] bg-[#D38B5D] mx-auto mb-6 rounded-full w-[8ch]" />
-        <p className="text-[18px] text-[#333]/90">
-          Here for Your Wellbeing and Growth.
+        <div className="w-[72px] h-[4px] bg-[#B85B35] mx-auto mb-8 rounded-full" />
+        <p className="max-w-[720px] mx-auto text-[18px] md:text-[20px] leading-[1.85]">
+          Calm, confidential therapy for individuals and couples — space to
+          reflect, realign, and move forward with clarity.
         </p>
       </section>
 
-      <div className="mt-16" />
       <Testimonials />
-    </div>
+    </>
   );
 }
