@@ -6,7 +6,17 @@ html,
 body {
   margin: 0;
   padding: 0;
-  scroll-behavior: smooth;
+  height: 100%;
+  overflow: hidden; /* Prevent scrolling */
+  background-color: #fcfaf7;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 a {

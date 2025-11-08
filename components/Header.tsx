@@ -4,13 +4,9 @@ import Image from "next/image";
 
 export default function Header() {
   return (
-    <header
-      className="fixed top-0 left-0 z-50 w-full bg-[#FCFAF7]/95 backdrop-blur-md border-b border-[#E7E1D8]/60 shadow-sm py-5"
-    >
-      <div
-        className="max-w-7xl mx-auto flex items-center justify-between px-8 md:px-16"
-      >
-        {/* Larger Logo */}
+    <header className="fixed top-0 left-0 z-50 w-full bg-[#FCFAF7]/95 backdrop-blur-md border-b border-[#E7E1D8]/60 shadow-sm py-5">
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-8 md:px-16">
+        {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image
             src="/logo.png"
@@ -22,7 +18,7 @@ export default function Header() {
           />
         </Link>
 
-        {/* Spaced Nav Links */}
+        {/* Navigation Links with spacing */}
         <nav
           className="flex items-center text-[18px] md:text-[20px] font-medium tracking-wide"
           style={{ display: "flex", gap: "60px" }}

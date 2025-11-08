@@ -15,14 +15,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="min-h-screen flex flex-col bg-[#FCFAF7] text-[#111] font-[Georgia]">
-        {/* Fixed Header */}
+        {/* Fixed header */}
         <Header />
 
-        {/* Add top padding so page titles are never hidden */}
-        <main className="flex-grow pt-[160px] md:pt-[200px]">{children}</main>
+        {/* Main section with spacing so titles are visible */}
+        <main className="flex-grow pt-[180px] flex flex-col items-center justify-center text-center">
+          {children}
+        </main>
 
-        {/* Footer */}
-        <footer className="w-full text-center py-6 border-t border-[#E7E1D8]/60 text-sm text-[#444] bg-[#FCFAF7]">
+        {/* Footer lifted so no scroll */}
+        <footer className="w-full text-center py-6 border-t border-[#E7E1D8]/60 text-sm text-[#444] bg-[#FCFAF7] fixed bottom-0 left-0">
           © {new Date().getFullYear()} Appiah Counselling. All rights reserved.
         </footer>
       </body>
