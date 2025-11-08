@@ -1,27 +1,34 @@
-"use client";
+import Image from "next/image";
 
 export default function ContactPage() {
   return (
-    <main className="min-h-screen text-[#111] bg-[#FCFAF7] flex flex-col">
-      <section className="pt-24 text-center">
-        <h1 className="font-serif text-[44px] md:text-[54px] font-semibold">Contact</h1>
-        {/* Orange line same length as "Contact" */}
-        <div className="h-[3px] bg-[#D38B5D] mx-auto mt-3 mb-6 rounded-full inline-block w-[7ch]" />
-      </section>
-
-      <section className="flex-grow flex items-center justify-center">
-        <div className="bg-white/70 border border-[#E7E1D8] rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.05)] px-8 md:px-12 py-10 text-center max-w-lg mx-auto">
-          <p className="text-[16px] md:text-[18px] text-[#333]/90 mb-6">
-            If you’d like to book a session or have any questions, please reach out via email.
-          </p>
-          <a
-            href="mailto:sammy@appiahcounselling.com"
-            className="text-[17px] md:text-[18px] text-[#C85B2B] underline decoration-[#D79B62]/60 decoration-2 underline-offset-4 hover:text-[#5E8164]"
-          >
-            sammy@appiahcounselling.com
+    <section className="flex flex-col items-center text-center">
+      <Image
+        src="/counselling-office.jpg"
+        alt="Counselling Office"
+        width={1200}
+        height={600}
+        className="rounded-2xl shadow-md object-cover w-full max-w-5xl mb-10"
+      />
+      <h1 className="font-serif text-[44px] md:text-[54px] font-semibold mb-4">Contact</h1>
+      <div className="h-[3px] bg-[#D38B5D] mx-auto mb-6 rounded-full w-[8ch]" />
+      <p className="text-[18px] text-[#333]/90 max-w-2xl mb-8">
+        Get in touch to book a consultation or ask any questions about our services.
+      </p>
+      <div className="text-[#333]/90 text-lg">
+        <p>
+          Email:{" "}
+          <a href="mailto:info@appiahcounselling.com" className="text-[#5E8164] hover:underline">
+            info@appiahcounselling.com
           </a>
-        </div>
-      </section>
-    </main>
+        </p>
+        <p>
+          Phone:{" "}
+          <a href="tel:+447123456789" className="text-[#5E8164] hover:underline">
+            +44 7123 456 789
+          </a>
+        </p>
+      </div>
+    </section>
   );
 }

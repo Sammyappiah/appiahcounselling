@@ -18,33 +18,21 @@ export default function Header() {
           />
         </Link>
 
-        {/* Navigation Links with spacing */}
+        {/* Navigation */}
         <nav
           className="flex items-center text-[18px] md:text-[20px] font-medium tracking-wide"
           style={{ display: "flex", gap: "60px" }}
         >
-          <Link
-            href="/"
-            className="text-[#111] hover:text-[#5E8164] transition-colors duration-300"
-          >
+          <Link href="/" className="text-[#111] hover:text-[#5E8164] transition-colors duration-300">
             Home
           </Link>
-          <Link
-            href="/about"
-            className="text-[#111] hover:text-[#5E8164] transition-colors duration-300"
-          >
+          <Link href="/about" className="text-[#111] hover:text-[#5E8164] transition-colors duration-300">
             About
           </Link>
-          <Link
-            href="/booking"
-            className="text-[#111] hover:text-[#5E8164] transition-colors duration-300"
-          >
+          <Link href="/booking" className="text-[#111] hover:text-[#5E8164] transition-colors duration-300">
             Booking
           </Link>
-          <Link
-            href="/contact"
-            className="text-[#111] hover:text-[#5E8164] transition-colors duration-300"
-          >
+          <Link href="/contact" className="text-[#111] hover:text-[#5E8164] transition-colors duration-300">
             Contact
           </Link>
         </nav>
