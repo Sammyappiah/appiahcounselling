@@ -1,44 +1,31 @@
+"use client";
+import useFadeUp from "@/lib/useFadeUp";
+
 export default function BookingPage() {
+  useFadeUp();
+
   return (
-    <section className="px-6">
-      {/* Title */}
-      <div className="text-center mb-10 pt-8">
+    <main className="min-h-screen bg-[#FCFAF7] text-[#111] font-sans pb-20">
+      <section className="text-center px-6 pt-[140px] fade-up">
         <h1 className="font-serif text-[44px] md:text-[54px] font-semibold mb-4">
           Booking
         </h1>
-        <div className="h-[3px] bg-[#D38B5D] mx-auto rounded-full w-[8ch]" />
-      </div>
+        <div className="h-[3px] bg-[#D38B5D] mx-auto mb-6 rounded-full w-[8ch]" />
+      </section>
 
-      {/* Two centered blocks */}
-      <div className="min-h-[50vh] flex items-center justify-center">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 max-w-3xl w-full">
-          {/* Individual Session */}
-          <div className="bg-white/80 border border-[#E7E1D8] rounded-2xl shadow-sm p-10 text-center">
-            <h2 className="font-serif text-[22px] md:text-[26px] mb-3">
-              Individual Session
-            </h2>
-            <p className="text-[17px] md:text-[18px] text-[#333]/90 mb-2">
-              £50 — Online Only
-            </p>
-            <p className="text-[15px] md:text-[16px] text-[#555]/90">
-              50 minutes per session
-            </p>
-          </div>
+      <div className="flex flex-col md:flex-row justify-center items-center gap-10 px-6 fade-up">
+        <div className="bg-white/70 border border-[#E7E1D8] rounded-2xl shadow-md p-10 w-full max-w-sm text-center">
+          <h2 className="text-[22px] md:text-[24px] font-serif mb-3">Individual Session</h2>
+          <p className="text-[18px] mb-3">Online only</p>
+          <p className="text-[20px] font-medium text-[#5E8164]">£50</p>
+        </div>
 
-          {/* Couples Session */}
-          <div className="bg-white/80 border border-[#E7E1D8] rounded-2xl shadow-sm p-10 text-center">
-            <h2 className="font-serif text-[22px] md:text-[26px] mb-3">
-              Couples Session
-            </h2>
-            <p className="text-[17px] md:text-[18px] text-[#333]/90 mb-2">
-              £65 — Online Only
-            </p>
-            <p className="text-[15px] md:text-[16px] text-[#555]/90">
-              60 minutes per session
-            </p>
-          </div>
+        <div className="bg-white/70 border border-[#E7E1D8] rounded-2xl shadow-md p-10 w-full max-w-sm text-center">
+          <h2 className="text-[22px] md:text-[24px] font-serif mb-3">Couples Session</h2>
+          <p className="text-[18px] mb-3">Online only</p>
+          <p className="text-[20px] font-medium text-[#5E8164]">£65</p>
         </div>
       </div>
-    </section>
+    </main>
   );
 }

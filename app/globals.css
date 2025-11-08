@@ -5,3 +5,41 @@
 /* Hide scrollbar for testimonial scroller if needed later */
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+@layer components {
+  .nav-link {
+    @apply text-[#111] no-underline hover:text-[#5E8164] transition-colors duration-300;
+  }
+
+  .mobile-link {
+    @apply text-[#1a1a1a] no-underline text-[20px] font-medium hover:text-[#5E8164] transition-colors duration-300;
+  }
+}
+
+/* Hamburger animation */
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  position: relative;
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #111;
+  content: "";
+  transition: transform 0.25s ease, opacity 0.2s ease;
+}
+.hamburger::before { transform: translateY(-7px); }
+.hamburger::after  { transform: translateY(5px); }
+.hamburger.active  { background: transparent; }
+.hamburger.active::before { transform: translateY(0) rotate(45deg); }
+.hamburger.active::after  { transform: translateY(-2px) rotate(-45deg); }
+/* Fade-up animation used by all pages */
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s ease-out;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
