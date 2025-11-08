@@ -1,46 +1,57 @@
+"use client";
 import Link from "next/link";
+import Image from "next/image";
+import { useEffect, useState } from "react";
 
 export default function Header() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-[#E9E2D9] shadow-sm">
-      <div className="mx-auto max-w-7xl px-6 md:px-10 py-4 flex items-center justify-between">
-        {/* Logo */}
+    <header
+      className={`fixed top-0 z-50 w-full transition-all duration-500 backdrop-blur-md border-b border-[#E7E1D8]/60 shadow-[0_4px_20px_rgba(0,0,0,0.03)] ${
+        scrolled ? "bg-[#FCFAF7]/90 py-2" : "bg-[#FCFAF7]/95 py-4"
+      }`}
+    >
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 md:px-10 transition-all duration-300">
         <Link href="/" className="flex items-center">
-          <img
+          <Image
             src="/logo.png"
             alt="Appiah Counselling Logo"
-            width={220}
+            width={scrolled ? 200 : 250}
             height={70}
-            className="object-contain w-[180px] md:w-[220px] h-auto"
+            className="object-contain transition-all duration-500 ease-in-out"
+            priority
           />
         </Link>
 
-        {/* Navigation */}
-        <nav className="site-nav flex items-center text-[18px] md:text-[20px] font-medium tracking-[0.08em] space-x-10 md:space-x-14 lg:space-x-20">
+        <nav className="flex items-center gap-16 md:gap-24 text-[18px] md:text-[19px] font-medium tracking-wide">
           <Link
             href="/"
-            className="relative hover:text-[#B85B35] transition-colors after:content-[''] after:absolute after:left-0 after:bottom-[-6px] after:w-0 after:h-[2px] after:bg-[#B85B35] hover:after:w-full after:transition-all after:duration-300"
+            className="text-[#111] hover:text-[#5E8164] transition-colors duration-300"
           >
             Home
           </Link>
-
           <Link
             href="/about"
-            className="relative hover:text-[#B85B35] transition-colors after:content-[''] after:absolute after:left-0 after:bottom-[-6px] after:w-0 after:h-[2px] after:bg-[#B85B35] hover:after:w-full after:transition-all after:duration-300"
+            className="text-[#111] hover:text-[#5E8164] transition-colors duration-300"
           >
             About
           </Link>
-
           <Link
             href="/booking"
-            className="relative hover:text-[#B85B35] transition-colors after:content-[''] after:absolute after:left-0 after:bottom-[-6px] after:w-0 after:h-[2px] after:bg-[#B85B35] hover:after:w-full after:transition-all after:duration-300"
+            className="text-[#111] hover:text-[#5E8164] transition-colors duration-300"
           >
             Booking
           </Link>
-
           <Link
             href="/contact"
-            className="relative hover:text-[#B85B35] transition-colors after:content-[''] after:absolute after:left-0 after:bottom-[-6px] after:w-0 after:h-[2px] after:bg-[#B85B35] hover:after:w-full after:transition-all after:duration-300"
+            className="text-[#111] hover:text-[#5E8164] transition-colors duration-300"
           >
             Contact
           </Link>
