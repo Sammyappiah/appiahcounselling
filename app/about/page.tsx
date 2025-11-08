@@ -21,23 +21,25 @@ export default function About() {
   return (
     <main className="bg-[#FDFBF9] text-[#111111] min-h-screen font-sans">
       {/* Hero Section */}
-      <section className="text-center pt-[160px] pb-[100px] px-6 fade-up">
-        <h1 className="text-[48px] mb-4 font-serif font-semibold">About</h1>
+      <section className="text-center pt-[120px] md:pt-[140px] pb-[80px] px-6 fade-up">
+        <h1 className="text-[44px] md:text-[54px] mb-4 font-serif font-semibold">
+          About
+        </h1>
         <div className="w-[80px] h-[4px] bg-[#B85B35] mx-auto mb-8 rounded-full" />
-        <p className="max-w-[720px] mx-auto text-[22px] leading-[1.8] font-light mt-8">
+        <p className="max-w-[720px] mx-auto text-[22px] leading-[1.8] font-light mt-6">
           Calm. Connected. Compassionate.
         </p>
       </section>
 
       {/* Contained Image */}
-      <section className="relative max-w-5xl mx-auto px-6 fade-up mb-[100px]">
+      <section className="relative max-w-5xl mx-auto px-6 fade-up mb-[80px]">
         <div className="relative rounded-3xl shadow-lg border border-[#E6D8CA] bg-[#FCF9F5] p-2">
-          <div className="relative w-full h-[360px] md:h-[420px] overflow-hidden rounded-[20px]">
+          <div className="relative w-full h-[340px] md:h-[420px] overflow-hidden rounded-[20px]">
             <Image
               src="/couple.jpeg"
               alt="Couple in therapy session"
               fill
-              className="object-contain object-[center_top]"
+              className="object-cover object-center"
               sizes="(max-width: 768px) 100vw, 900px"
               priority={false}
             />
@@ -46,15 +48,15 @@ export default function About() {
       </section>
 
       {/* Description */}
-      <section className="text-center max-w-[750px] mx-auto px-6 fade-up pb-[140px]">
-        <p className="text-[20px] leading-[1.9] font-light">
+      <section className="text-center max-w-[750px] mx-auto px-6 fade-up pb-[100px]">
+        <p className="text-[19px] md:text-[20px] leading-[1.9] font-light">
           A calm, safe, and confidential environment for individuals and couples
           to explore challenges, strengthen emotional resilience, and rediscover
-          clarity and connection through compassionate, evidence based therapy.
+          clarity and connection through compassionate, evidence-based therapy.
         </p>
       </section>
 
-      {/* Animation Styles */}
+      {/* Fade-in animation styling */}
       <style jsx>{`
         .fade-up {
           opacity: 0;
