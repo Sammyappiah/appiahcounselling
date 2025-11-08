@@ -2,12 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-a {
-  text-decoration: none;
+html,
+body {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
 }
 
-body {
-  font-family: 'Georgia', serif;
-  background-color: #FCFAF7;
-  color: #111;
+a {
+  text-decoration: none;
 }
