@@ -1,25 +1,26 @@
 import "./globals.css";
-import Navbar from "@/components/Navbar";
+import type { Metadata } from "next";
+import Header from "@/components/Header";
 
-export const metadata = {
-  title: "Appiah Counselling",
-  description: "Professional therapy for individuals and couples.",
+export const metadata: Metadata = {
+  title: "Appiah Counselling — Here for Your Wellbeing and Growth",
+  description:
+    "Professional, compassionate therapy to support emotional balance and self-awareness.",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
-      <body className="bg-[#FDFBF9] text-[#111111] font-sans">
-        {/* Header */}
-        <Navbar />
-
-        {/* Page content */}
-        {children}
-
-        {/* Global Footer */}
-        <footer className="border-t border-[#E2D3C2] bg-[#F6F1EB] text-[#3B2E20] text-center py-10 mt-20">
-          <div className="h-[3px] w-full bg-[#B85B35] mb-6" />
-          © 2025 Appiah Counselling — All Rights Reserved
+      <body className="min-h-screen flex flex-col bg-[#FCFAF7] text-[#111]">
+        <Header />
+        {/* Keeps titles clear of header on all pages */}
+        <main className="flex-grow pt-24 md:pt-28">{children}</main>
+        <footer className="w-full text-center py-6 border-t border-[#E7E1D8]/60 text-sm text-[#444]">
+          © {new Date().getFullYear()} Appiah Counselling. All rights reserved.
         </footer>
       </body>
     </html>

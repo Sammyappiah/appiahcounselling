@@ -85,3 +85,22 @@ footer {
 .fade-in {
   animation: fadeIn 1s ease-out both;
 }
+/* neutralize default link styles site-wide */
+a { text-decoration: none; color: inherit; }
+
+/* shared nav link styles */
+.nav-link {
+  transition: color 300ms ease;
+}
+.nav-link:hover {
+  color: #5E8164;
+}
+
+/* mobile menu links */
+.mobile-link {
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(231, 225, 216, 0.8);
+}
+.mobile-link:last-child {
+  border-bottom: none;
+}
