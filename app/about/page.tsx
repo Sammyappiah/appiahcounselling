@@ -1,72 +1,27 @@
-"use client";
-
-import Image from "next/image";
-import { useEffect } from "react";
-
-export default function About() {
-  useEffect(() => {
-    const elements = document.querySelectorAll(".fade-up");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) entry.target.classList.add("visible");
-        });
-      },
-      { threshold: 0.2 }
-    );
-    elements.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
-
+export default function AboutPage() {
   return (
-    <main className="bg-[#FDFBF9] text-[#111111] min-h-screen font-sans">
-      {/* Hero Section */}
-      <section className="text-center pt-[160px] pb-[100px] px-6 fade-up">
-        <h1 className="text-[48px] mb-4 font-serif font-semibold">About</h1>
-        <div className="w-[80px] h-[4px] bg-[#B85B35] mx-auto mb-8 rounded-full" />
-        <p className="max-w-[720px] mx-auto text-[22px] leading-[1.8] font-light mt-8">
-          Calm. Connected. Compassionate.
+    <main className="min-h-screen bg-[#FCFAF7] text-[#111]">
+      {/* Keep this padding so the title sits below the fixed header */}
+      <section className="pt-36 text-center">
+        <h1 className="font-serif text-[44px] md:text-[54px] font-semibold">
+          About
+        </h1>
+        <div className="h-[3px] bg-[#D38B5D] mx-auto mt-3 mb-6 rounded-full w-[8ch]" />
+        <p className="text-[18px] text-[#333]/90 max-w-3xl mx-auto">
+          Professional, confidential therapy designed for clarity and calm.
         </p>
       </section>
 
-      {/* Contained Image */}
-      <section className="relative max-w-5xl mx-auto px-6 fade-up mb-[100px]">
-        <div className="relative rounded-3xl shadow-lg border border-[#E6D8CA] bg-[#FCF9F5] p-2">
-          <div className="relative w-full h-[360px] md:h-[420px] overflow-hidden rounded-[20px]">
-            <Image
-              src="/couple.jpeg"
-              alt="Couple in therapy session"
-              fill
-              className="object-contain object-[center_top]"
-              sizes="(max-width: 768px) 100vw, 900px"
-              priority={false}
-            />
-          </div>
+      {/* Optional supporting paragraph (keeps the page balanced like Home/Contact) */}
+      <section className="px-6 md:px-10">
+        <div className="max-w-3xl mx-auto text-center mt-10">
+          <p className="text-[17px] md:text-[18px] text-[#333]/90 leading-relaxed">
+            I offer a calm, supportive space where individuals and couples can
+            explore challenges, strengthen emotional resilience, and rediscover
+            connection through compassionate, evidence-based practice.
+          </p>
         </div>
       </section>
-
-      {/* Description */}
-      <section className="text-center max-w-[750px] mx-auto px-6 fade-up pb-[140px]">
-        <p className="text-[20px] leading-[1.9] font-light">
-          A calm, safe, and confidential environment for individuals and couples
-          to explore challenges, strengthen emotional resilience, and rediscover clarity
-          and connection through compassionate, evidence based therapy.
-        </p>
-      </section>
-
-      {/* Divider */}
-
-      <style jsx>{`
-        .fade-up {
-          opacity: 0;
-          transform: translateY(40px);
-          transition: all 1.2s ease-out;
-        }
-        .fade-up.visible {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      `}</style>
     </main>
   );
 }

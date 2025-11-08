@@ -1,96 +1,57 @@
-"use client";
-
-import Link from "next/link";
-
-export default function Booking() {
+export default function BookingPage() {
   return (
-    <main className="bg-[#FDFBF9] text-[#111111] min-h-screen font-sans">
-      {/* Hero Section */}
-      <section className="text-center pt-[160px] pb-[100px] px-6 fade-in">
-        <h1 className="text-[48px] mb-6 text-[#120C08] font-serif font-semibold">
+    <main className="min-h-screen bg-[#FCFAF7] text-[#111]">
+      {/* Title block — consistent spacing below fixed header */}
+      <section className="pt-36 text-center">
+        <h1 className="font-serif text-[44px] md:text-[54px] font-semibold">
           Booking
         </h1>
-        <div className="w-[80px] h-[4px] bg-[#B85B35] mx-auto mb-10 rounded-full" />
-        <p className="max-w-[680px] mx-auto text-[20px] leading-[1.8] text-[#181818] mt-4">
-          Choose a session type and begin your journey.
+        <div className="h-[3px] bg-[#D38B5D] mx-auto mt-3 mb-6 rounded-full w-[8ch]" />
+        <p className="text-[18px] text-[#333]/90">
+          Professional, confidential therapy designed for clarity and calm.
         </p>
       </section>
 
-      {/* Room Options */}
-      <section className="max-w-[1100px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 px-6 pb-[140px] fade-up">
-        {[
-          {
-            name: "Individual Therapy",
-            price: "£60 / session",
-            img: "/accessible.jpg",
-            id: "individual",
-          },
-          {
-            name: "Couples Therapy",
-            price: "£90 / session",
-            img: "/deluxe.jpg",
-            id: "couples",
-          },
-          {
-            name: "Family Therapy",
-            price: "£110 / session",
-            img: "/family.jpg",
-            id: "family",
-          },
-        ].map((session) => (
-          <div
-            key={session.id}
-            className="bg-[#FCF9F5] border border-[#E6D8CA] rounded-3xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-500"
-          >
-            <img
-              src={session.img}
-              alt={session.name}
-              className="w-full h-[240px] object-cover"
-            />
-            <div className="p-8 text-center">
-              <h3 className="text-[22px] font-semibold mb-3 text-[#2B1E10]">
-                {session.name}
-              </h3>
-              <p className="text-[#6A5C4A] mb-6">{session.price}</p>
-              <Link
-                href={`/booking/${session.id}`}
-                className="inline-block bg-[#B85B35] text-white px-6 py-3 rounded-lg text-[16px] font-semibold hover:bg-[#9E4C2B] transition-colors"
+      {/* Center the two cards in the middle of the page */}
+      <section className="flex items-center justify-center">
+        <div className="mx-auto px-6 md:px-10 w-full max-w-4xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mt-10 mb-16 place-items-center">
+            {/* Individual Session */}
+            <div className="bg-white/70 border border-[#E7E1D8] rounded-2xl shadow-[0_8px_24px_rgba(0,0,0,0.05)] px-8 py-10 text-center w-full max-w-md">
+              <p className="tracking-[0.18em] text-[12px] text-[#333] font-semibold mb-3">
+                INDIVIDUAL SESSION
+              </p>
+              <p className="text-[16px] text-[#333]/90">
+                One-to-one counselling for self-exploration and growth.
+              </p>
+              <p className="mt-5 font-semibold">£50 / 50 minutes</p>
+              <a
+                href="/booking/individual"
+                className="inline-block mt-6 text-[#C85B2B] underline decoration-[#D79B62]/60 decoration-2 underline-offset-4 hover:text-[#5E8164]"
               >
-                Book Now
-              </Link>
+                Book Session
+              </a>
+            </div>
+
+            {/* Couples Session */}
+            <div className="bg-white/70 border border-[#E7E1D8] rounded-2xl shadow-[0_8px_24px_rgba(0,0,0,0.05)] px-8 py-10 text-center w-full max-w-md">
+              <p className="tracking-[0.18em] text-[12px] text-[#333] font-semibold mb-3">
+                COUPLES SESSION
+              </p>
+              <p className="text-[16px] text-[#333]/90">
+                Build understanding and communication within your relationship.
+              </p>
+              <p className="mt-5 font-semibold">£65 / 50 minutes</p>
+              <a
+                href="/booking/couples"
+                className="inline-block mt-6 text-[#C85B2B] underline decoration-[#D79B62]/60 decoration-2 underline-offset-4 hover:text-[#5E8164]"
+              >
+                Book Session
+              </a>
             </div>
           </div>
-        ))}
+        </div>
       </section>
-
-      {/* Animations */}
-      <style jsx global>{`
-        .fade-in {
-          opacity: 0;
-          transform: translateY(20px);
-          animation: fadeIn 1.2s ease-out forwards;
-        }
-
-        .fade-up {
-          opacity: 0;
-          transform: translateY(30px);
-          animation: fadeUp 1.2s ease-out forwards;
-        }
-
-        @keyframes fadeIn {
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes fadeUp {
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
     </main>
   );
 }
