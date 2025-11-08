@@ -2,8 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+a {
+  text-decoration: none;
+}
+
 body {
   font-family: 'Georgia', serif;
-  color: #111;
   background-color: #FCFAF7;
+  color: #111;
 }

@@ -1,5 +1,6 @@
 import "./globals.css";
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata = {
   title: "Appiah Counselling — Here for Your Wellbeing and Growth",
@@ -10,47 +11,54 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="min-h-screen flex flex-col">
-        {/* HEADER */}
-        <header className="sticky top-0 z-50 w-full bg-white/90 backdrop-blur-md border-b border-[#E9E2D9]/80 shadow-sm">
-          <div className="mx-auto max-w-7xl px-6 md:px-10 py-3 flex items-center justify-between">
-            {/* Logo */}
+      <body className="min-h-screen flex flex-col bg-[#FCFAF7] text-[#111] font-serif">
+        {/* Header */}
+        <header className="sticky top-0 z-50 w-full bg-[#FCFAF7]/95 backdrop-blur-md border-b border-[#E7E1D8]/60 shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
+          <div className="max-w-7xl mx-auto flex items-center justify-between px-6 md:px-10 py-3">
             <Link href="/" className="flex items-center">
-              <div className="bg-white/90 border border-[#E7E1D8] rounded-xl px-3 py-2 shadow-[0_8px_24px_rgba(0,0,0,0.04)]">
-                <img
-                  src="/logo.png"
-                  alt="Appiah Counselling Logo"
-                  width="220"
-                  height="80"
-                  className="object-contain w-[200px] md:w-[220px] h-auto opacity-95"
-                />
-              </div>
+              <Image
+                src="/logo.png"
+                alt="Appiah Counselling Logo"
+                width={180}
+                height={60}
+                className="h-auto w-[180px] md:w-[200px] object-contain"
+                priority
+              />
             </Link>
 
-            {/* Navigation */}
-            <nav className="site-nav flex items-center text-[18px] md:text-[20px] font-medium gap-10 md:gap-16 lg:gap-20 text-[#111]">
-              <Link href="/" className="hover:text-[#5E8164] transition-colors duration-300">
+            <nav className="flex items-center gap-8 md:gap-14 text-[17px] md:text-[18px] font-medium">
+              <Link
+                href="/"
+                className="text-[#111] hover:text-[#5E8164] transition-colors duration-300"
+              >
                 Home
               </Link>
-              <Link href="/about" className="hover:text-[#5E8164] transition-colors duration-300">
+              <Link
+                href="/about"
+                className="text-[#111] hover:text-[#5E8164] transition-colors duration-300"
+              >
                 About
               </Link>
-              <Link href="/booking" className="hover:text-[#5E8164] transition-colors duration-300">
+              <Link
+                href="/booking"
+                className="text-[#111] hover:text-[#5E8164] transition-colors duration-300"
+              >
                 Booking
               </Link>
-              <Link href="/contact" className="hover:text-[#5E8164] transition-colors duration-300">
+              <Link
+                href="/contact"
+                className="text-[#111] hover:text-[#5E8164] transition-colors duration-300"
+              >
                 Contact
               </Link>
             </nav>
           </div>
         </header>
 
-        {/* MAIN CONTENT */}
         <main className="flex-grow">{children}</main>
 
-        {/* FOOTER */}
         <footer className="w-full text-center py-6 border-t border-[#E7E1D8]/60 text-sm text-[#444] bg-[#FCFAF7]">
-          © {new Date().getFullYear()} Appiah Counselling. All rights reserved.
+          © 2025 Appiah Counselling. All rights reserved.
         </footer>
       </body>
     </html>
