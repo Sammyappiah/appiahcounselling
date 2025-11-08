@@ -19,20 +19,20 @@ export default function Header() {
       }`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-10 md:px-16 transition-all duration-300">
-        {/* Larger Logo */}
+        {/* Enlarged Logo */}
         <Link href="/" className="flex items-center">
           <Image
             src="/logo.png"
             alt="Appiah Counselling Logo"
-            width={scrolled ? 250 : 300}
+            width={scrolled ? 260 : 320}
             height={100}
             className="object-contain transition-all duration-500 ease-in-out"
             priority
           />
         </Link>
 
-        {/* Properly spaced nav */}
-        <nav className="flex items-center gap-16 md:gap-28 text-[18px] md:text-[20px] font-medium tracking-wide">
+        {/* Properly spaced navigation links */}
+        <nav className="flex items-center gap-20 md:gap-32 text-[19px] md:text-[21px] font-medium tracking-wide">
           <Link
             href="/"
             className="text-[#111] hover:text-[#5E8164] transition-colors duration-300"

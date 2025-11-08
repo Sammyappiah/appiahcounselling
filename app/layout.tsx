@@ -14,8 +14,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Fixed Header */}
         <Header />
 
-        {/* Increased padding so titles (Welcome, About, etc.) are fully visible */}
-        <main className="flex-grow pt-48 md:pt-56">{children}</main>
+        {/* Padding ensures title sections (Welcome, About, etc.) are visible */}
+        <main className="flex-grow pt-56 md:pt-64">{children}</main>
 
         <footer className="w-full text-center py-6 border-t border-[#E7E1D8]/60 text-sm text-[#444] bg-[#FCFAF7]">
           © {new Date().getFullYear()} Appiah Counselling. All rights reserved.
