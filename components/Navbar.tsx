@@ -1,76 +1,53 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import Image from "next/image";
 import { useState } from "react";
-
-const links = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/services", label: "Services" },
-  { href: "/contact", label: "Contact" },
-];
-
-function NavLink({ href, label }: { href: string; label: string }) {
-  const pathname = usePathname();
-  const isActive = pathname === href;
-
-  return (
-    <Link
-      href={href}
-      className={`text-sm md:text-base transition-colors ${
-        isActive
-          ? "text-slate-900 font-semibold"
-          : "text-slate-700 hover:text-slate-900"
-      }`}
-    >
-      {label}
-    </Link>
-  );
-}
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/95 backdrop-blur">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-6">
-        {/* LOGO */}
-        <Link href="/" className="flex items-center gap-2">
-          <img
+    <header className="w-full border-b bg-[#FCFAF7]">
+      <nav className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+
+        {/* LOGO — BIG, CLEAR, RESPONSIVE */}
+        <Link href="/" className="flex items-center">
+          <Image
             src="/company-logo.jpg"
-            alt="Appiah Counselling logo"
-            className="h-8 sm:h-9 md:h-10 lg:h-11 w-auto object-contain"
-            draggable="false"
+            alt="Appiah Counselling"
+            width={260}      // ← BIGGER
+            height={80}
+            className="h-auto w-auto"
+            priority
           />
         </Link>
 
-        {/* DESKTOP NAV */}
-        <div className="hidden items-center gap-8 md:flex">
-          {links.map((link) => (
-            <NavLink key={link.href} href={link.href} label={link.label} />
-          ))}
+        {/* DESKTOP MENU */}
+        <div className="hidden md:flex items-center gap-10 text-[18px] font-medium text-slate-900">
+          <Link href="/">Home</Link>
+          <Link href="/about">About</Link>
+          <Link href="/services">Services</Link>
+          <Link href="/contact">Contact</Link>
         </div>
 
-        {/* MOBILE TOGGLE */}
+        {/* MOBILE BUTTON */}
         <button
-          type="button"
-          aria-label="Toggle navigation"
-          onClick={() => setOpen((prev) => !prev)}
-          className="inline-flex items-center justify-center rounded-md border border-slate-300 px-2 py-1 text-sm text-slate-800 md:hidden"
+          className="md:hidden text-3xl"
+          onClick={() => setOpen(!open)}
+          aria-label="Toggle menu"
         >
-          {open ? "Close" : "Menu"}
+          ☰
         </button>
       </nav>
 
       {/* MOBILE MENU */}
       {open && (
-        <div className="border-t border-slate-200 bg-white md:hidden">
-          <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-4">
-            {links.map((link) => (
-              <NavLink key={link.href} href={link.href} label={link.label} />
-            ))}
-          </div>
+        <div className="md:hidden flex flex-col text-lg gap-4 px-6 pb-6 font-medium text-slate-900">
+          <Link href="/" onClick={() => setOpen(false)}>Home</Link>
+          <Link href="/about" onClick={() => setOpen(false)}>About</Link>
+          <Link href="/services" onClick={() => setOpen(false)}>Services</Link>
+          <Link href="/contact" onClick={() => setOpen(false)}>Contact</Link>
         </div>
       )}
     </header>
