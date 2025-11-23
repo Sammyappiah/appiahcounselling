@@ -62,6 +62,71 @@ export default function HomePage() {
         </div>
       </section>
 
+{/* ─────────────────────────────────────────────── */}
+{/* PEOPLE OFTEN COME FOR – GRID SECTION */}
+{/* ─────────────────────────────────────────────── */}
+
+<section className="bg-[#F9F5EF] py-24 px-6 md:px-10">
+  <div className="max-w-6xl mx-auto">
+
+    <h2 className="text-3xl md:text-4xl font-semibold text-slate-900 mb-6 text-center">
+      People often come for
+    </h2>
+
+    <p className="text-center text-lg text-slate-700 max-w-3xl mx-auto mb-14">
+      Many people arrive feeling like they should be coping better. You don’t have to
+      carry everything on your own — we work together to make sense of what’s going on.
+    </p>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <div className="p-8 bg-white rounded-xl shadow-sm border text-slate-900">
+        <h3 className="text-xl font-semibold mb-2">Anxiety & panic</h3>
+        <p className="text-slate-600 text-sm">
+          Feeling on edge, overwhelmed or unable to switch off.
+        </p>
+      </div>
+
+      <div className="p-8 bg-white rounded-xl shadow-sm border text-slate-900">
+        <h3 className="text-xl font-semibold mb-2">Stress & burnout</h3>
+        <p className="text-slate-600 text-sm">
+          Life feels heavy and constant pressure is wearing you down.
+        </p>
+      </div>
+
+      <div className="p-8 bg-white rounded-xl shadow-sm border text-slate-900">
+        <h3 className="text-xl font-semibold mb-2">Relationship issues</h3>
+        <p className="text-slate-600 text-sm">
+          Conflict, miscommunication or struggling to connect.
+        </p>
+      </div>
+
+      <div className="p-8 bg-white rounded-xl shadow-sm border text-slate-900">
+        <h3 className="text-xl font-semibold mb-2">Trauma & PTSD</h3>
+        <p className="text-slate-600 text-sm">
+          Difficult experiences that still affect you now.
+        </p>
+      </div>
+
+      <div className="p-8 bg-white rounded-xl shadow-sm border text-slate-900">
+        <h3 className="text-xl font-semibold mb-2">Low mood & depression</h3>
+        <p className="text-slate-600 text-sm">
+          Feeling stuck, numb or disconnected from yourself or life.
+        </p>
+      </div>
+
+      <div className="p-8 bg-white rounded-xl shadow-sm border text-slate-900">
+        <h3 className="text-xl font-semibold mb-2">Self-esteem</h3>
+        <p className="text-slate-600 text-sm">
+          Struggling with confidence or a harsh inner critic.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{/* ─────────────────────────────────────────────── */}
       {/* REST OF PAGE (left as-is) */}
       {/* ... existing sections like "People often come for" etc. */}
     </main>
