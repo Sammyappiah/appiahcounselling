@@ -1,11 +1,25 @@
-import type { Metadata } from "next";
+// app/layout.tsx
 import "./globals.css";
-import Header from "@/components/Header";
+import type { Metadata } from "next";
+import Navbar from "../components/Navbar";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Appiah Counselling — Here for Your Wellbeing and Growth",
+  metadataBase: new URL("https://appiahcounselling.co.uk"),
+  title: {
+    default: "Appiah Counselling – Individual & Couples Counselling",
+    template: "%s | Appiah Counselling",
+  },
   description:
-    "Professional, compassionate therapy to support emotional balance and self-awareness.",
+    "Online counselling for individuals and couples experiencing anxiety, relationship difficulties, stress and emotional overwhelm.",
+  openGraph: {
+    type: "website",
+    locale: "en_GB",
+    url: "https://appiahcounselling.co.uk",
+    siteName: "Appiah Counselling",
+  },
+  twitter: { card: "summary_large_image" },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({
@@ -15,12 +29,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="min-h-screen flex flex-col bg-[#FCFAF7] text-[#111]">
-        <Header />
-        <main className="flex-grow pt-24 md:pt-28">{children}</main>
-        <footer className="w-full text-center py-6 border-t border-[#E7E1D8]/60 text-sm text-[#444]">
-          © {new Date().getFullYear()} Appiah Counselling. All rights reserved.
-        </footer>
+      <body className="bg-white text-slate-900 antialiased">
+        <Navbar />
+        <main className="pt-24">{children}</main>
+        <Footer />
       </body>
     </html>
   );

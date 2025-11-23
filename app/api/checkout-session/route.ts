@@ -1,49 +1,53 @@
-import { NextResponse } from "next/server";
 import Stripe from "stripe";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
-apiVersion: "2024-06-20" as any,
+  apiVersion: "2024-06-20" as any,
 });
 
 export async function POST(req: Request) {
   try {
-    const { sessionType, amountGBP, calendlyEventUri } = await req.json();
-
-    if (!amountGBP || !sessionType) {
-      return new NextResponse("Missing payload", { status: 400 });
+    if (!process.env.STRIPE_SECRET_KEY) {
+      return new Response(JSON.stringify({ error: "Stripe key missing" }), { status: 500 });
     }
 
-    const priceInPence = Math.round(Number(amountGBP) * 100);
+    const { sessionType, amount, date, time } = await req.json();
+
+    const isCouples = sessionType === "couples";
+    const name = `${isCouples ? "Couples" : "Individual"} Therapy Session`;
+
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+    try {
+      new URL(baseUrl!);
+    } catch {
+      return new Response(JSON.stringify({ error: "Invalid NEXT_PUBLIC_BASE_URL" }), { status: 500 });
+    }
 
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
       currency: "gbp",
+      success_url: `${baseUrl}/confirmation?success=1`,
+      cancel_url: `${baseUrl}/booking?canceled=1`,
       line_items: [
         {
-          quantity: 1,
           price_data: {
             currency: "gbp",
-            unit_amount: priceInPence,
-            product_data: {
-              name:
-                sessionType === "couples"
-                  ? "Couples Therapy (50 mins)"
-                  : "Individual Therapy (50 mins)",
-            },
+            unit_amount: amount, // 5000 or 6500
+            product_data: { name },
           },
+          quantity: 1,
         },
       ],
-      success_url: `${process.env.NEXT_PUBLIC_SITE_URL}/confirmation?status=success`,
-      cancel_url: `${process.env.NEXT_PUBLIC_SITE_URL}/booking?status=cancelled`,
       metadata: {
-        sessionType,
-        calendlyEventUri: calendlyEventUri || "",
+        sessionType: isCouples ? "couples" : "individual",
+        date,      // YYYY-MM-DD
+        time,      // HH:mm (GMT)
       },
+      customer_creation: "always",
     });
 
-    return NextResponse.json({ url: session.url });
+    return new Response(JSON.stringify({ url: session.url }), { status: 200 });
   } catch (err: any) {
-    console.error(err);
-    return new NextResponse(err?.message || "Stripe error", { status: 500 });
+    console.error("Stripe error:", err);
+    return new Response(JSON.stringify({ error: err.message || "Stripe error" }), { status: 500 });
   }
 }

@@ -1,48 +1,49 @@
 // lib/testimonials.ts
-// -------------------------------------------
-// This file stores all testimonial text used
-// in the Appiah Counselling website.
-// -------------------------------------------
+export type Testimonial = { quote: string };
 
-export const testimonials = [
-  {
-    text:
-      "I've had 3 sessions so far and cannot recommend Samuel enough. I have felt uplifted and my confidence is growing day by day after these sessions. He has taught me coping mechanisms and how to manage thoughts and behaviours that were holding me back.",
+export const TESTIMONIALS: Testimonial[] = [
+{
+    quote:
+      "Samuel holds space for me to be open, transparent and honest. He listens with understanding and without judgement and helps me navigate through situations. I was extremely anxious about the first session but I ought not have been. I was made to feel relaxed and ready to open up.",
   },
   {
-    text:
-      "We’ve only had our first session, but we left feeling energized and hopeful. I look forward to our next sessions!",
+    quote:
+      "I've had 3 sessions so far and cannot recommend Samuel enough. I’ve felt uplifted and my confidence is growing day by day.",
   },
   {
-    text:
-      "We have had 3 sessions with Samuel — patient, caring and constantly understands both sides without judgement.",
+    quote:
+      "We’ve only had our first session, but we left feeling energized and hopeful. Clear, compassionate and practical.",
   },
   {
-    text:
-      "Samuel has really been supportive, respectful and listened in all the sessions we’ve had with him. His communication skills are outstanding.",
+    quote:
+      "We have had 3 sessions — patient, caring and constantly understanding. We feel heard and supported.",
   },
   {
-    text:
-      "Not working with Sam for very long, yet sessions have been truly transformative. Listens, understands, impactful challenges. Highly recommend.",
+    quote:
+      "Samuel has been supportive and respectful in all the sessions, helping us communicate and reconnect.",
   },
   {
-    text:
-      "Samuel is great, mindful and experienced. He provides great insight and practical steps to improve my life.",
+    quote:
+      "Not working with Sam for very long yet, but sessions have been truly transformational.",
   },
   {
-    text:
+    quote:
+      "Mindful and experienced. Offers great insight and practical, gentle guidance.",
+  },
+  {
+    quote:
       "Amazing therapist!!",
   },
   {
-    text:
-      "Great progress with Sam — very easy to talk to, great listener, lovely advice. Definitely recommend!",
+    quote:
+      "Very easy to talk to, a great listener, and helpful advice.",
   },
   {
-    text:
+    quote:
       "Grateful for my exchanges with Samuel.",
   },
   {
-    text:
+    quote:
       "Samuel makes everything easy.",
   },
 ];

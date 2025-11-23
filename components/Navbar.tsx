@@ -1,55 +1,78 @@
 "use client";
 
+import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 
-export default function Navbar() {
+const links = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/services", label: "Services" },
+  { href: "/contact", label: "Contact" },
+];
+
+function NavLink({ href, label }: { href: string; label: string }) {
   const pathname = usePathname();
-
-  const links = [
-    { label: "Home", href: "/" },
-    { label: "About", href: "/about" },
-    { label: "Booking", href: "/booking" },
-    { label: "Contact", href: "/contact" },
-  ];
+  const isActive = pathname === href;
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-[#FDFBF9]/95 backdrop-blur supports-[backdrop-filter]:bg-[#FDFBF9]/80">
-      <div className="mx-auto max-w-7xl px-8">
-        <div className="flex items-center justify-between h-[120px]">
-          <a href="/" aria-label="Appiah Counselling — Home">
-            <img
-              alt="Appiah Counselling Logo"
-              width={340}
-              height={90}
-              className="w-[340px] h-auto object-contain"
-              src="/logo.png"
-            />
-          </a>
+    <Link
+      href={href}
+      className={`text-sm md:text-base transition-colors ${
+        isActive
+          ? "text-slate-900 font-semibold"
+          : "text-slate-700 hover:text-slate-900"
+      }`}
+    >
+      {label}
+    </Link>
+  );
+}
 
-          <nav aria-label="Primary" className="flex items-center justify-center gap-[70px] tracking-wide">
-            {links.map((link) => {
-              const active =
-                pathname === link.href ||
-                (link.href !== "/" && pathname?.startsWith(link.href));
+export default function Navbar() {
+  const [open, setOpen] = useState(false);
 
-              return (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className={`text-[22px] font-semibold relative transition-all duration-300 ${
-                    active
-                      ? "text-[#B85B35] border-b-2 border-[#B85B35]"
-                      : "text-[#111111] hover:text-[#A04B2E]"
-                  } pb-[2px]`}
-                >
-                  {link.label}
-                </a>
-              );
-            })}
-          </nav>
+  return (
+    <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/95 backdrop-blur">
+      <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-6">
+        {/* LOGO */}
+        <Link href="/" className="flex items-center gap-2">
+          <img
+            src="/company-logo.jpg"
+            alt="Appiah Counselling logo"
+            className="h-8 sm:h-9 md:h-10 lg:h-11 w-auto object-contain"
+            draggable="false"
+          />
+        </Link>
+
+        {/* DESKTOP NAV */}
+        <div className="hidden items-center gap-8 md:flex">
+          {links.map((link) => (
+            <NavLink key={link.href} href={link.href} label={link.label} />
+          ))}
         </div>
-      </div>
-      <div className="h-[4px] bg-gradient-to-r from-[#B85B35] to-[#E3C9B0]" />
+
+        {/* MOBILE TOGGLE */}
+        <button
+          type="button"
+          aria-label="Toggle navigation"
+          onClick={() => setOpen((prev) => !prev)}
+          className="inline-flex items-center justify-center rounded-md border border-slate-300 px-2 py-1 text-sm text-slate-800 md:hidden"
+        >
+          {open ? "Close" : "Menu"}
+        </button>
+      </nav>
+
+      {/* MOBILE MENU */}
+      {open && (
+        <div className="border-t border-slate-200 bg-white md:hidden">
+          <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-4">
+            {links.map((link) => (
+              <NavLink key={link.href} href={link.href} label={link.label} />
+            ))}
+          </div>
+        </div>
+      )}
     </header>
   );
 }

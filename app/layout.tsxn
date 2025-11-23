@@ -1,0 +1,81 @@
+// app/layout.tsx
+import "./globals.css";
+import type { Metadata } from "next";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+
+export const metadata: Metadata = {
+  title: "Appiah Counselling — Here for Your Wellbeing and Growth",
+  description:
+    "Professional, compassionate therapy to support emotional balance and self-awareness.",
+  icons: {
+    icon: "/favicon.ico",
+  },
+  openGraph: {
+    type: "website",
+    url: "https://appiahcounselling.com",
+    title: "Appiah Counselling — Here for Your Wellbeing and Growth",
+    description:
+      "Professional, compassionate therapy to support emotional balance and self-awareness.",
+    images: [
+      {
+        url: "/og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Appiah Counselling",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Appiah Counselling",
+    description:
+      "Professional, compassionate therapy to support emotional balance and self-awareness.",
+    images: ["/og.jpg"],
+  },
+  alternates: {
+    canonical: "https://appiahcounselling.com",
+  },
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en">
+      <body className="min-h-screen flex flex-col bg-[#FCFAF7] text-[#111]">
+        <Header />
+        <main className="flex-grow pt-24 md:pt-28">{children}</main>
+        <Footer />
+
+        {/* LocalBusiness Schema for Google */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              "name": "Appiah Counselling",
+              "image": "https://appiahcounselling.com/og.jpg",
+              "url": "https://appiahcounselling.com",
+              "telephone": "+44 7414 119 762",
+              "priceRange": "££",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "London, UK",
+                "addressLocality": "London",
+                "addressCountry": "GB",
+              },
+              "sameAs": [
+                "https://www.instagram.com/appiahcounselling",
+                "https://www.facebook.com/appiahcounselling",
+              ],
+            }),
+          }}
+        />
+      </body>
+    </html>
+  );
+}
