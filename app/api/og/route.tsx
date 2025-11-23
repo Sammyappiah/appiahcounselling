@@ -1,30 +1,23 @@
-import { ImageResponse } from "next/server";
+import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
 
-export async function GET(req: Request) {
-  const { searchParams } = new URL(req.url);
-  const title = searchParams.get("title") || "Appiah Counselling";
-
+export async function GET() {
   return new ImageResponse(
     (
       <div
         style={{
-          display: "flex",
-          height: "100%",
+          fontSize: 64,
+          background: "#FCFAF7",
+          color: "#222",
           width: "100%",
-          background: "linear-gradient(135deg, #065f46, #10b981)",
-          color: "white",
-          padding: "60px",
+          height: "100%",
+          display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          textAlign: "center",
-          fontSize: 48,
-          fontWeight: 700,
-          fontFamily: "sans-serif",
         }}
       >
-        {title}
+        Appiah Counselling
       </div>
     ),
     {
