@@ -73,11 +73,6 @@ export default function HomePage() {
       People often come for
     </h2>
 
-    <p className="text-center text-lg text-slate-700 max-w-3xl mx-auto mb-14">
-      Many people arrive feeling like they should be coping better. You don’t have to
-      carry everything on your own — we work together to make sense of what’s going on.
-    </p>
-
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
       <div className="p-8 bg-white rounded-xl shadow-sm border text-slate-900">
