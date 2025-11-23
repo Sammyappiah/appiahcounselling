@@ -2,54 +2,51 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+
+  const navLinks = [
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
+    { name: "Services", href: "/services" },
+    { name: "Contact", href: "/contact" },
+  ];
 
   return (
-    <header className="w-full border-b bg-[#FCFAF7]">
-      <nav className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+    <header className="w-full bg-[#FAF8F3] border-b border-neutral-200">
+      <div className="max-w-6xl mx-auto flex items-center justify-between py-4 px-6">
 
-        {/* LOGO — BIG, CLEAR, RESPONSIVE */}
+        {/* LOGO */}
         <Link href="/" className="flex items-center">
           <Image
             src="/company-logo.jpg"
-            alt="Appiah Counselling"
-            width={260}      // ← BIGGER
-            height={80}
-            className="h-auto w-auto"
+            alt="Appiah Counselling Logo"
+            width={120}    // ★ PERFECT SIZE (smaller but readable)
+            height={120}
             priority
           />
         </Link>
 
-        {/* DESKTOP MENU */}
-        <div className="hidden md:flex items-center gap-10 text-[18px] font-medium text-slate-900">
-          <Link href="/">Home</Link>
-          <Link href="/about">About</Link>
-          <Link href="/services">Services</Link>
-          <Link href="/contact">Contact</Link>
-        </div>
+        {/* NAV LINKS */}
+        <nav className="flex items-center space-x-10">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`text-[17px] font-medium transition ${
+                pathname === link.href
+                  ? "text-[#1C1C1C]"
+                  : "text-[#3E4A59] hover:text-[#1C1C1C]"
+              }`}
+            >
+              {link.name}
+            </Link>
+          ))}
+        </nav>
 
-        {/* MOBILE BUTTON */}
-        <button
-          className="md:hidden text-3xl"
-          onClick={() => setOpen(!open)}
-          aria-label="Toggle menu"
-        >
-          ☰
-        </button>
-      </nav>
-
-      {/* MOBILE MENU */}
-      {open && (
-        <div className="md:hidden flex flex-col text-lg gap-4 px-6 pb-6 font-medium text-slate-900">
-          <Link href="/" onClick={() => setOpen(false)}>Home</Link>
-          <Link href="/about" onClick={() => setOpen(false)}>About</Link>
-          <Link href="/services" onClick={() => setOpen(false)}>Services</Link>
-          <Link href="/contact" onClick={() => setOpen(false)}>Contact</Link>
-        </div>
-      )}
+      </div>
     </header>
   );
 }
