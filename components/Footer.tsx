@@ -1,72 +1,22 @@
-// components/Footer.tsx
-import Link from "next/link";
-import Image from "next/image";
-
 export default function Footer() {
-  const year = new Date().getFullYear();
-
   return (
-    <footer className="mt-16 border-t border-slate-200 bg-[#FAF6F2]">
-      <div className="mx-auto max-w-6xl px-6 py-8 space-y-6">
-        {/* Accreditation + practice details */}
-        <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
-          <div className="flex items-center justify-center">
-            <Image
-              src="/mncps-acc-logo.jpeg"
-              alt="NCPS Accredited Registrant (MNCPS Acc.) and PSA Accredited Register"
-              width={320}
-              height={100}
-              className="h-auto w-full max-w-xs md:max-w-sm"
-              priority
-            />
-          </div>
+    <footer className="bg-[#FCFAF7] border-t border-slate-200 py-8 mt-20">
+      <div className="max-w-5xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6 text-slate-700">
 
-          <div className="text-center text-sm text-slate-700 md:text-right">
-            <p className="text-base font-semibold text-slate-900">
-              Appiah Counselling
-            </p>
-            <p>
-              Email:{" "}
-              <a
-                href="mailto:sammy@appiahcounselling.com"
-                className="underline underline-offset-2 decoration-slate-400 hover:text-slate-900"
-              >
-                sammy@appiahcounselling.com
-              </a>
-            </p>
-          </div>
+        {/* LEFT SIDE */}
+        <div className="text-center md:text-left">
+          <p className="font-semibold text-slate-900">Appiah Counselling</p>
+          <p className="text-sm">© {new Date().getFullYear()} All rights reserved.</p>
         </div>
 
-        <div className="border-t border-slate-200" />
+        {/* RIGHT SIDE – BLOG REMOVED */}
+        <nav className="flex gap-6 text-sm">
+          <a href="/" className="hover:text-slate-900">Home</a>
+          <a href="/about" className="hover:text-slate-900">About</a>
+          <a href="/services" className="hover:text-slate-900">Services</a>
+          <a href="/contact" className="hover:text-slate-900">Contact</a>
+        </nav>
 
-        {/* Sitemap + copyright */}
-        <div className="flex flex-col items-center justify-between gap-4 text-xs sm:text-sm text-slate-600 md:flex-row">
-          <p>© {year} Appiah Counselling. All rights reserved.</p>
-
-          <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2">
-            <Link href="/" className="hover:text-slate-900">
-              Home
-            </Link>
-            <Link href="/about" className="hover:text-slate-900">
-              About
-            </Link>
-            <Link href="/services" className="hover:text-slate-900">
-              Services
-            </Link>
-            <Link href="/blog" className="hover:text-slate-900">
-              Blog
-            </Link>
-            <Link href="/contact" className="hover:text-slate-900">
-              Contact
-            </Link>
-            <Link href="/privacy" className="hover:text-slate-900">
-              Privacy
-            </Link>
-            <Link href="/terms" className="hover:text-slate-900">
-              Terms
-            </Link>
-          </nav>
-        </div>
       </div>
     </footer>
   );
