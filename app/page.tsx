@@ -2,109 +2,109 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#f6f4f1] flex items-center justify-center px-6 md:px-12 py-12">
+    <main className="px-6 md:px-12 py-10 md:py-16 max-w-6xl mx-auto">
 
-      <div className="max-w-[1200px] w-full mx-auto">
+      {/* COMING SOON */}
+      <p className="text-center text-sm text-black/50 mb-6 tracking-wide">
+        Coming soon
+      </p>
 
-        {/* COMING SOON */}
-        <div className="text-center text-sm tracking-wide text-neutral-500 mb-6">
-          Coming soon
+      {/* HERO */}
+      <div className="relative w-full h-[420px] md:h-[520px] rounded-2xl overflow-hidden">
+
+        {/* IMAGE */}
+        <Image
+          src="/hero.jpg"
+          alt="Hero"
+          fill
+          className="object-cover object-center"
+          priority
+        />
+
+        {/* OVERLAY */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent" />
+
+        {/* LOGO */}
+        <img
+          src="/logo.jpg"
+          alt="Appiah Counselling"
+          className="absolute top-6 right-6 w-28 md:w-32 opacity-95"
+        />
+
+        {/* TEXT (smaller + cleaner) */}
+        <div className="absolute bottom-[12%] left-[6%] max-w-[420px]">
+          <h1 className="text-white text-[20px] md:text-[24px] leading-snug font-medium">
+            Where things that should be fine get unpacked.
+          </h1>
         </div>
-
-        {/* HERO */}
-        <div className="relative w-full h-[460px] md:h-[560px] rounded-2xl overflow-hidden">
-
-          {/* IMAGE */}
-          <Image
-            src="/hero.jpg"
-            alt="Therapy"
-            width={1600}
-            height={900}
-            priority
-            className="w-full h-full object-cover object-center md:object-[center_15%]"
-          />
-
-          {/* OVERLAY */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
-
-          {/* LOGO (TOP RIGHT — STRONGER PRESENCE) */}
-          <div className="absolute top-3 right-3 md:top-6 md:right-6">
-            <img
-              src="/logo.jpg"
-              alt="Appiah Counselling"
-              className="h-20 md:h-32 opacity-95"
-            />
-          </div>
-
-          {/* HEADLINE (LOWER + SMALLER + CLEANER) */}
-          <div className="absolute left-6 md:left-16 bottom-14 md:bottom-10 max-w-[260px] md:max-w-[320px]">
-            <h1 className="text-white/85 text-xs md:text-base leading-[1.5] font-serif tracking-[-0.01em]">
-              Where things that should be fine get unpacked.
-            </h1>
-          </div>
-
-        </div>
-
-        {/* DIVIDER */}
-        <div className="border-t border-black/5 my-12" />
-
-        {/* BOTTOM SECTION */}
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 text-sm">
-
-          {/* BUTTONS */}
-          <div className="flex flex-col gap-3 w-full md:w-auto">
-            <a
-              href="https://calendly.com/samuels12/couple-s-counselling?month=2026-05"
-              className="px-5 py-2.5 rounded-lg bg-[#f3f1ed] hover:bg-[#e6e1d8] transition border border-black/5 shadow-sm text-center"
-            >
-              Individual Sessions — £50 →
-            </a>
-
-            <a
-              href="https://calendly.com/samuels12/counselling?month=2026-05"
-              className="px-5 py-2.5 rounded-lg bg-[#f3f1ed] hover:bg-[#e6e1d8] transition border border-black/5 shadow-sm text-center"
-            >
-              Couples Sessions — £65 →
-            </a>
-          </div>
-
-          {/* ICONS (FIXED APPLE SVG) */}
-          <div className="flex items-center justify-center gap-5">
-            <a
-              href="https://open.spotify.com/show/2uDLEiwEVlGYZOmGLHI9Cr"
-              target="_blank"
-            >
-              <img
-                src="/spotify.svg"
-                className="w-5 h-5 opacity-70 hover:opacity-100 transition"
-              />
-            </a>
-
-            <div className="w-px h-6 bg-black/20" />
-
-            <a
-              href="https://podcasts.apple.com/us/podcast/everyday-counselling/id1863535119"
-              target="_blank"
-            >
-              <img
-                src="/apple.svg"
-                className="w-5 h-5 opacity-70 hover:opacity-100 transition"
-              />
-            </a>
-          </div>
-
-          {/* EMAIL */}
-          <a
-            href="mailto:sammy@appiahcounselling.com"
-            className="text-neutral-600 hover:text-black underline underline-offset-4 transition text-center md:text-right"
-          >
-            sammy@appiahcounselling.com →
-          </a>
-
-        </div>
-
       </div>
 
+      {/* DIVIDER */}
+      <div className="mt-12 pt-8 border-t border-black/10" />
+
+      {/* CONTENT */}
+      <div className="mt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-10">
+
+        {/* BUTTONS */}
+        <div className="flex flex-col gap-4 w-full md:w-auto">
+
+          <a
+            href="#"
+            className="group w-full md:w-auto border border-black/10 bg-white/70 backdrop-blur-sm hover:bg-white transition rounded-xl px-6 py-4 text-sm flex justify-between items-center"
+          >
+            Individual Sessions — £50
+            <span className="ml-4 group-hover:translate-x-1 transition">→</span>
+          </a>
+
+          <a
+            href="#"
+            className="group w-full md:w-auto border border-black/10 bg-white/70 backdrop-blur-sm hover:bg-white transition rounded-xl px-6 py-4 text-sm flex justify-between items-center"
+          >
+            Couples Sessions — £65
+            <span className="ml-4 group-hover:translate-x-1 transition">→</span>
+          </a>
+        </div>
+
+        {/* PODCAST ICONS (NOW CLICKABLE) */}
+        <div className="flex items-center justify-center gap-6 opacity-70">
+
+          {/* Spotify */}
+          <a
+            href="https://open.spotify.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:opacity-100 transition"
+          >
+            <img src="/spotify.svg" className="w-5 h-5" />
+          </a>
+
+          {/* Divider */}
+          <div className="h-5 w-px bg-black/20" />
+
+          {/* Apple (YOUR SVG FILE) */}
+          <a
+            href="https://podcasts.apple.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:opacity-100 transition"
+          >
+            <img src="/apple.svg" className="w-5 h-5" />
+          </a>
+        </div>
+
+        {/* EMAIL */}
+        <div className="text-right">
+          <a
+            href="mailto:sammy@appiahcounselling.com"
+            className="group text-sm border-b border-black/30 hover:border-black transition pb-1"
+          >
+            sammy@appiahcounselling.com
+            <span className="inline-block ml-2 group-hover:translate-x-1 transition">
+              →
+            </span>
+          </a>
+        </div>
+      </div>
     </main>
   );
 }
