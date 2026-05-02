@@ -1,14 +1,8 @@
 import "./globals.css";
-import { Playfair_Display } from "next/font/google";
-
-const serif = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-serif",
-});
 
 export const metadata = {
   title: "Appiah Counselling",
-  description: "Therapy for people who look fine on the outside",
+  description: "Where things that should be fine get unpacked.",
 };
 
 export default function RootLayout({
@@ -18,7 +12,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${serif.variable} font-sans bg-[#f6f4f1]`}>
+      <body className="bg-[#f6f4f1] text-black antialiased">
         {children}
       </body>
     </html>
