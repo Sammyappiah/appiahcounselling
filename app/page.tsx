@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#f6f4f1] flex items-center justify-center px-6 md:px-12 py-12">
-      
+
       <div className="max-w-[1200px] w-full mx-auto">
 
         {/* COMING SOON */}
@@ -14,6 +14,7 @@ export default function Home() {
         {/* HERO */}
         <div className="relative w-full h-[460px] md:h-[560px] rounded-2xl overflow-hidden">
 
+          {/* IMAGE */}
           <Image
             src="/hero.jpg"
             alt="Therapy"
@@ -26,7 +27,7 @@ export default function Home() {
           {/* OVERLAY */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
 
-          {/* LOGO */}
+          {/* LOGO (TOP RIGHT — STRONGER PRESENCE) */}
           <div className="absolute top-3 right-3 md:top-6 md:right-6">
             <img
               src="/logo.jpg"
@@ -35,7 +36,7 @@ export default function Home() {
             />
           </div>
 
-          {/* HEADLINE */}
+          {/* HEADLINE (LOWER + SMALLER + CLEANER) */}
           <div className="absolute left-6 md:left-16 bottom-14 md:bottom-10 max-w-[260px] md:max-w-[320px]">
             <h1 className="text-white/85 text-xs md:text-base leading-[1.5] font-serif tracking-[-0.01em]">
               Where things that should be fine get unpacked.
@@ -67,16 +68,28 @@ export default function Home() {
             </a>
           </div>
 
-          {/* ICONS */}
+          {/* ICONS (FIXED APPLE SVG) */}
           <div className="flex items-center justify-center gap-5">
-            <a href="https://open.spotify.com/show/2uDLEiwEVlGYZOmGLHI9Cr" target="_blank">
-              <img src="/spotify.svg" className="w-5 h-5 opacity-80 hover:opacity-100 transition" />
+            <a
+              href="https://open.spotify.com/show/2uDLEiwEVlGYZOmGLHI9Cr"
+              target="_blank"
+            >
+              <img
+                src="/spotify.svg"
+                className="w-5 h-5 opacity-70 hover:opacity-100 transition"
+              />
             </a>
 
             <div className="w-px h-6 bg-black/20" />
 
-            <a href="https://podcasts.apple.com/us/podcast/everyday-counselling/id1863535119" target="_blank">
-              <img src="/apple.svg" className="w-5 h-5 opacity-80 hover:opacity-100 transition" />
+            <a
+              href="https://podcasts.apple.com/us/podcast/everyday-counselling/id1863535119"
+              target="_blank"
+            >
+              <img
+                src="/apple.svg"
+                className="w-5 h-5 opacity-70 hover:opacity-100 transition"
+              />
             </a>
           </div>
 
