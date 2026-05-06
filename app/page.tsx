@@ -1,109 +1,111 @@
 import Image from "next/image";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <main className="px-6 md:px-12 py-10 md:py-16 max-w-6xl mx-auto">
+    <main className="min-h-screen bg-[#F7F4EE] text-[#161616]">
+      <div className="mx-auto flex min-h-screen max-w-[430px] flex-col px-4 py-4">
+        {/* HERO */}
+        <section className="relative overflow-hidden rounded-[34px] bg-black shadow-[0_12px_40px_rgba(0,0,0,0.16)]">
+          <div className="relative h-[245px] w-full">
+            <Image
+              src="/hero.jpg"
+              alt="Appiah Counselling"
+              fill
+              priority
+              className="object-cover object-center"
+            />
 
-      {/* COMING SOON */}
-      <p className="text-center text-sm text-black/50 mb-6 tracking-wide">
-        Coming soon
-      </p>
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-black/5 to-black/55" />
 
-      {/* HERO */}
-      <div className="relative w-full h-[420px] md:h-[520px] rounded-2xl overflow-hidden">
+            {/* Logo */}
+            <div className="absolute left-4 top-4 z-20">
+              <Image
+                src="/logo.png"
+                alt="Appiah Counselling Logo"
+                width={90}
+                height={38}
+                className="h-auto w-[90px]"
+              />
+            </div>
 
-        {/* IMAGE */}
-        <Image
-          src="/hero.jpg"
-          alt="Hero"
-          fill
-          className="object-cover object-center"
-          priority
-        />
+            {/* Headline */}
+            <div className="absolute bottom-5 right-5 z-20 max-w-[240px]">
+              <h1 className="font-serif text-[14px] leading-[0.98] tracking-[-0.04em] text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.45)]">
+                Therapy That Gets to the Root
+                <br />
+                Not Just the Symptoms
+              </h1>
+            </div>
+          </div>
+        </section>
 
-        {/* OVERLAY */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent" />
+        {/* SERVICES */}
+        <section className="mt-4 grid grid-cols-2 gap-3">
+          {/* INDIVIDUAL */}
+          <div className="rounded-[30px] border border-[#E7DED2] bg-[#FBF9F5] p-5 shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
+            <h2 className="font-serif text-[18px] leading-[1.02] tracking-[-0.03em] text-[#1A1A1A]">
+              Individual Therapy
+            </h2>
 
-        {/* LOGO */}
-        <img
-          src="/logo.jpg"
-          alt="Appiah Counselling"
-          className="absolute top-6 right-6 w-28 md:w-32 opacity-95"
-        />
+            <p className="mt-4 text-[11px] leading-[1.7] text-[#615C57]">
+              Work through personal patterns, emotional blocks, and the things
+              that keep repeating.
+            </p>
 
-        {/* TEXT (smaller + cleaner) */}
-        <div className="absolute bottom-[12%] left-[6%] max-w-[420px]">
-          <h1 className="text-white text-[20px] md:text-[24px] leading-snug font-medium">
-            Where things that should be fine get unpacked.
-          </h1>
-        </div>
-      </div>
+            <div className="mt-5 text-[11px] font-semibold text-[#1A1A1A]">
+              £50 per session
+            </div>
 
-      {/* DIVIDER */}
-      <div className="mt-12 pt-8 border-t border-black/10" />
+            <a
+              href="https://calendly.com/samuels12/couple-s-counselling?month=2026-05"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-5 inline-flex h-[42px] items-center justify-center rounded-full bg-[#C9733D] px-6 text-[11px] font-medium text-white transition-all duration-300 hover:bg-[#B96430]"
+            >
+              Book Session
+            </a>
+          </div>
 
-      {/* CONTENT */}
-      <div className="mt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-10">
+          {/* COUPLES */}
+          <div className="rounded-[30px] border border-[#E7DED2] bg-[#FBF9F5] p-5 shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
+            <h2 className="font-serif text-[18px] leading-[1.02] tracking-[-0.03em] text-[#1A1A1A]">
+              Couples Therapy
+            </h2>
 
-        {/* BUTTONS */}
-        <div className="flex flex-col gap-4 w-full md:w-auto">
+            <p className="mt-4 text-[11px] leading-[1.7] text-[#615C57]">
+              Improve communication, resolve tension, and understand
+              relationship dynamics clearly.
+            </p>
 
-          <a
-            href="#"
-            className="group w-full md:w-auto border border-black/10 bg-white/70 backdrop-blur-sm hover:bg-white transition rounded-xl px-6 py-4 text-sm flex justify-between items-center"
-          >
-            Individual Sessions — £50
-            <span className="ml-4 group-hover:translate-x-1 transition">→</span>
-          </a>
+            <div className="mt-5 text-[11px] font-semibold text-[#1A1A1A]">
+              £65 per session
+            </div>
 
-          <a
-            href="#"
-            className="group w-full md:w-auto border border-black/10 bg-white/70 backdrop-blur-sm hover:bg-white transition rounded-xl px-6 py-4 text-sm flex justify-between items-center"
-          >
-            Couples Sessions — £65
-            <span className="ml-4 group-hover:translate-x-1 transition">→</span>
-          </a>
-        </div>
+            <a
+              href="https://calendly.com/samuels12/counselling?month=2026-05"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-5 inline-flex h-[42px] items-center justify-center rounded-full bg-[#C9733D] px-6 text-[11px] font-medium text-white transition-all duration-300 hover:bg-[#B96430]"
+            >
+              Book Session
+            </a>
+          </div>
+        </section>
 
-        {/* PODCAST ICONS (NOW CLICKABLE) */}
-        <div className="flex items-center justify-center gap-6 opacity-70">
-
-          {/* Spotify */}
-          <a
-            href="https://open.spotify.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:opacity-100 transition"
-          >
-            <img src="/spotify.svg" className="w-5 h-5" />
-          </a>
-
-          {/* Divider */}
-          <div className="h-5 w-px bg-black/20" />
-
-          {/* Apple (YOUR SVG FILE) */}
-          <a
-            href="https://podcasts.apple.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:opacity-100 transition"
-          >
-            <img src="/apple.svg" className="w-5 h-5" />
-          </a>
-        </div>
-
-        {/* EMAIL */}
-        <div className="text-right">
+        {/* FOOTER */}
+        <footer className="mt-6 border-t border-[#E7DED2] pt-5">
           <a
             href="mailto:sammy@appiahcounselling.com"
-            className="group text-sm border-b border-black/30 hover:border-black transition pb-1"
+            className="text-[11px] text-[#5F5A55] transition hover:text-[#1A1A1A]"
           >
             sammy@appiahcounselling.com
-            <span className="inline-block ml-2 group-hover:translate-x-1 transition">
-              →
-            </span>
           </a>
-        </div>
+
+          <div className="mt-2 text-[10px] text-[#8E877F]">
+            © 2026 Appiah Counselling
+          </div>
+        </footer>
       </div>
     </main>
   );
