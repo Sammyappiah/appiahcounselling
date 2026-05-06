@@ -2,11 +2,6 @@
 
 import "./globals.css";
 import { Playfair_Display, Inter } from "next/font/google";
-export const metadata = {
-  title: "Appiah Counselling",
-  description: "Therapy for people who look fine on the outside.",
-  icons: {
-    icon: "/icon.png",
   },
 };
 const playfair = Playfair_Display({
