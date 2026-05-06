@@ -1,28 +1,23 @@
-// app/layout.tsx
-
+import type { Metadata } from "next";
 import "./globals.css";
 import { Playfair_Display, Inter } from "next/font/google";
-  },
-};
+
 const playfair = Playfair_Display({
   subsets: ["latin"],
-  variable: "--font-serif",
-  display: "swap",
+  variable: "--font-playfair",
 });
 
 const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-sans",
-  display: "swap",
+  variable: "--font-inter",
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Appiah Counselling",
   description:
     "Therapy that gets to the root — not just the symptoms.",
-  metadataBase: new URL("https://appiahcounselling.com"),
-  alternates: {
-    canonical: "/",
+  icons: {
+    icon: "/icon.png",
   },
 };
 
@@ -32,11 +27,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={`${playfair.variable} ${inter.variable}`}
-    >
-      <body className="bg-[#F8F6F2] text-[#1A1A1A] font-sans">
+    <html lang="en">
+      <body
+        className={`${playfair.variable} ${inter.variable} bg-[#F8F6F2] text-[#1A1A1A]`}
+      >
         {children}
       </body>
     </html>
