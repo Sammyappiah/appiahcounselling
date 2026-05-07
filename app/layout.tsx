@@ -12,15 +12,21 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-export const metadata: Metadata = {
-  title: "Appiah Counselling",
-  description:
-    "Therapy that gets to the root — not just the symptoms.",
-  icons: {
-    icon: "/icon.png",
-  },
-};
+export const metadata = {
+  metadataBase: new URL('https://appiahcounselling.com'),
 
+  title: {
+    default: 'Appiah Counselling',
+    template: '%s | Appiah Counselling',
+  },
+
+  description:
+    'Professional counselling and psychotherapy services for individuals and couples.',
+
+  alternates: {
+    canonical: '/',
+  },
+}
 export default function RootLayout({
   children,
 }: {

@@ -1,6 +1,16 @@
 import Image from "next/image";
 
+export const metadata = {
+  title: 'Home',
+  description:
+    'Professional counselling and psychotherapy services for individuals and couples.',
+  alternates: {
+    canonical: '/',
+  },
+}
+
 export default function Home() {
+
   return (
     <main className="min-h-screen bg-[#F6F1EA] text-[#171717]">
       <div className="mx-auto max-w-[1440px] px-4 py-4 sm:px-6 sm:py-6 lg:px-8">
