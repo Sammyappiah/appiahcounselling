@@ -1,38 +1,84 @@
-const container = {
-  maxWidth: "1100px",
-  margin: "100px auto",
-  padding: "0 20px",
-};
+import Image from "next/image";
 
-const h1 = { fontFamily: "Georgia, serif", fontSize: "40px" };
-const text = { fontSize: "16px", color: "#444", lineHeight: "1.7" };
-
-export default function About() {
+export default function AboutPage() {
   return (
-    <main style={container}>
-      <div style={{
-        display: "grid",
-        gridTemplateColumns: "1fr 1fr",
-        gap: "60px",
-        alignItems: "center"
-      }}>
-        <div>
-          <h1 style={h1}>Counselling that meets you where you are</h1>
+    <main className="bg-[#ece8e1] text-[#171412] min-h-screen pt-32 md:pt-40">
 
-          <p style={{ ...text, marginTop: "20px" }}>
-            I work with people who are functioning on the surface but struggling underneath.
-          </p>
+      <section className="max-w-[1380px] mx-auto px-6 md:px-10 lg:px-16 pt-10 md:pt-12 lg:pt-16 pb-24">
 
-          <p style={{ ...text, marginTop: "20px" }}>
-            The aim is clarity, honesty, and real change.
-          </p>
+        <div className="grid grid-cols-1 lg:grid-cols-[420px_1fr] gap-16 lg:gap-24 items-start">
+
+          {/* LEFT COLUMN */}
+          <div className="max-w-[420px]">
+
+            <p className="text-[0.72rem] tracking-[0.32em] uppercase text-[#c89b4d] mb-10">
+              About
+            </p>
+
+            <h1 className="font-serif text-[1.42rem] leading-[1.02] tracking-[-0.035em] text-[#171412]">
+              I’m Samuel Appiah,
+              <br />
+              a UK based therapist.
+            </h1>
+
+            <div className="w-24 h-px bg-[#c89b4d] mt-12 mb-12" />
+
+            <div className="space-y-10">
+
+              <p className="text-[1rem] leading-[2] text-[#6e675f]">
+                Born and raised in London, my work is grounded in calm conversation,
+                emotional honesty, and creating space for people to slow down and
+                better understand themselves.
+              </p>
+
+              <p className="text-[1rem] leading-[2] text-[#6e675f]">
+                I work with individuals and couples navigating anxiety, emotional
+                overwhelm, relationship difficulties, overthinking, intimacy,
+                identity, self esteem, and the quieter struggles often carried
+                beneath the surface of everyday life.
+              </p>
+
+              <p className="text-[1rem] leading-[2] text-[#6e675f]">
+                Alongside counselling work, I continue postgraduate study and
+                specialist training in areas including sexology and dyslexia,
+                helping shape a broader and more thoughtful understanding of
+                emotional wellbeing.
+              </p>
+
+              <p className="text-[1rem] leading-[2] text-[#6e675f]">
+                Outside of therapy, I also host reflective conversations exploring
+                emotional life, relationships, masculinity, identity, and the
+                pressures of modern living.
+              </p>
+
+            </div>
+
+          </div>
+          {/* RIGHT COLUMN */}
+          <div className="flex justify-center lg:justify-end">
+
+            <Image
+              src="/about.jpg"
+              alt="Samuel Appiah"
+              width={900}
+              height={1100}
+              priority
+              className="
+                w-full
+                max-w-[560px]
+                h-auto
+                object-cover
+                rounded-[38px]
+                shadow-[0_20px_60px_rgba(0,0,0,0.05)]
+              "
+            />
+
+          </div>
+
         </div>
 
-        <img src="/images/home/session.jpg" style={{
-          width: "100%",
-          borderRadius: "16px"
-        }} />
-      </div>
+      </section>
+
     </main>
   );
 }
