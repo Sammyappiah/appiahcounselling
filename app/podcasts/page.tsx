@@ -33,11 +33,15 @@ export default function PodcastPage() {
             Reflective Conversations
           </p>
 
-<h1 className="font-serif text-[1.42rem] md:text-[3.8rem] leading-[1.02] tracking-[-0.035em] text-[#171412] max-w-[980px]">
-            Conversations exploring emotional life, relationships,
-            identity, and modern pressure.
-          </h1>
-
+<h1 className="font-serif text-[1.42rem] leading-[1.02] tracking-[-0.035em] text-[#171412] md:text-[3.2rem] lg:text-[4rem] max-w-[980px]">
+  Conversations exploring
+  <br />
+  emotional life,
+  <br />
+  relationships, identity, and
+  <br />
+  modern pressure.
+</h1>
           <div className="w-24 h-px bg-[#c89b4d] mt-12 mb-12" />
 
           <p className="text-[1rem] md:text-[1.12rem] leading-[2] text-[#6e675f] max-w-[720px]">
