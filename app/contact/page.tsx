@@ -20,7 +20,7 @@ export default function ContactPage() {
 
               </p>
 
-<h1 className="font-serif text-[1.42rem] md:text-[2.4rem] leading-[1.02] tracking-[-0.035em] text-[#171412] max-w-[420px] mx-auto">
+<h1 className="font-serif text-[1.42rem] leading-[1.02] tracking-[-0.035em] text-[#171412] max-w-[420px] mx-auto">
   Begin the conversation.
 </h1>
               <div className="w-24 h-px bg-[#c89b4d] mt-12 mb-12 mx-auto" />
