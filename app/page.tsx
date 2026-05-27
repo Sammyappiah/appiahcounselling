@@ -19,7 +19,7 @@ export default function HomePage() {
                 Thoughtful Therapy
               </p>
 
-              <h1 className="font-serif text-[1.42rem] md:text-[1.9rem] lg:text-[2.25rem] leading-[1.02] tracking-[-0.035em] text-[#1a1412]">
+<h1 className="font-serif text-[1.42rem] leading-[1.02] tracking-[-0.035em] text-[#171412] max-w-[420px]">
                 Therapy that gets to the root,
                 <br />
                 not just the symptoms.
