@@ -61,13 +61,15 @@ export default function PodcastPage() {
               SPOTIFY
             </Link>
 
-            <Link
-              href="#"
-              className="inline-flex items-center justify-center h-[58px] px-10 rounded-full bg-[#d4a24c] text-[#171412] tracking-[0.18em] text-[0.78rem]"
-            >
-              APPLE PODCASTS
-            </Link>
+<Link
+  href="https://podcasts.apple.com/gb/podcast/everyday-counselling/id1863535119"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-flex items-center justify-center h-[58px] px-10 rounded-full bg-[#d4a24c] text-[#171412] tracking-[0.22em] uppercase text-[0.8rem] transition hover:opacity-90"
+>
+  APPLE PODCASTS
 
+</Link>
           </div>
 
         </div>
