@@ -12,7 +12,7 @@ export default function ContactPage() {
 
           <div className="flex justify-center pt-10 md:pt-12 lg:pt-16 pb-24">
 
-            <div className="max-w-[720px] w-full text-center">
+            <div className="max-w-[620px] w-full text-center">
 
               <p className="text-[0.72rem] tracking-[0.32em] uppercase text-[#c89b4d] mb-12">
 
@@ -20,11 +20,9 @@ export default function ContactPage() {
 
               </p>
 
-              <h1 className="font-serif text-[1.42rem] md:text-[2rem] leading-[1.02] tracking-[-0.035em] text-[#1a1412]">
-
-                Begin the conversation.
-
-              </h1>
+<h1 className="font-serif text-[1.42rem] md:text-[2.4rem] leading-[1.02] tracking-[-0.035em] text-[#171412] max-w-[420px] mx-auto">
+  Begin the conversation.
+</h1>
               <div className="w-24 h-px bg-[#c89b4d] mt-12 mb-12 mx-auto" />
 
               <p className="text-[1rem] leading-[1.95] text-[#6e675f] max-w-[36ch] mx-auto">
