@@ -1,127 +1,91 @@
 import Link from "next/link";
-import { Headphones, Podcast } from "lucide-react";
+
+const topics = [
+  { label: "RELATIONSHIPS", color: "bg-[#eadfd5]" },
+  { label: "WORK STRESS", color: "bg-[#dbe3ea]" },
+  { label: "ANXIETY", color: "bg-[#dde2d3]" },
+  { label: "BURNOUT", color: "bg-[#ddd4e6]" },
+
+  { label: "EMOTIONAL EXHAUSTION", color: "bg-[#eadcc8]" },
+  { label: "SELF AWARENESS", color: "bg-[#e3d8dc]" },
+  { label: "ATTACHMENT", color: "bg-[#d8e3e2]" },
+
+  { label: "IDENTITY", color: "bg-[#ddd7cf]" },
+  { label: "OVERTHINKING", color: "bg-[#d9dfd4]" },
+  { label: "INTIMACY", color: "bg-[#d9dee8]" },
+  { label: "EMOTIONAL REGULATION", color: "bg-[#ead8ce]" },
+
+  { label: "COMMUNICATION", color: "bg-[#d9ddeb]" },
+  { label: "SELF ESTEEM", color: "bg-[#ead9b8]" },
+  { label: "DATING", color: "bg-[#dbe1d5]" },
+  { label: "BOUNDARIES", color: "bg-[#e5ddd8]" },
+];
 
 export default function PodcastPage() {
   return (
-    <main className="bg-[#f4efe7] text-[#171412] min-h-screen pt-32 md:pt-40">
+    <main className="bg-[#f4efe7] min-h-screen pt-32 md:pt-40">
 
-      <section className="max-w-[1380px] mx-auto px-6 md:px-10 lg:px-16 pt-10 md:pt-12 lg:pt-16 pb-24">
+      <section className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 pb-28">
 
-        <div className="max-w-[720px]">
+        <div className="max-w-[1200px]">
 
-          <p className="text-[0.72rem] tracking-[0.32em] uppercase text-[#c89b4d] mb-10">
+          <p className="text-[0.72rem] tracking-[0.32em] uppercase text-[#c89b4d] mb-12">
             Reflective Conversations
           </p>
 
-          <h1 className="font-serif text-[1.5rem] md:text-[2.1rem] leading-[1.05] tracking-[-0.04em] text-[#171412] max-w-[900px]">
+          <h1 className="font-serif text-[2.2rem] md:text-[4.2rem] leading-[0.98] tracking-[-0.04em] text-[#171412] max-w-[900px]">
             Conversations exploring emotional life, relationships,
             identity, and modern pressure.
           </h1>
 
           <div className="w-24 h-px bg-[#c89b4d] mt-12 mb-12" />
 
-          <p className="text-[1rem] leading-[2] text-[#6e675f] max-w-[620px]">
+          <p className="text-[1rem] md:text-[1.12rem] leading-[2] text-[#6e675f] max-w-[720px]">
             Honest, reflective discussions exploring emotional wellbeing,
             relationships, identity, emotional resilience, work stress,
-            emotional exhaustion, and the quieter experiences often carried
-            beneath everyday life.
+            emotional exhaustion, and the quieter experiences often
+            carried beneath everyday life.
           </p>
 
-          {/* BUTTONS */}
-          <div className="flex flex-wrap gap-5 mt-14">
+          <div className="flex flex-wrap gap-4 mt-14">
 
             <Link
               href="https://open.spotify.com/show/2uDLEiwEVlGYZOmGLHI9Cr"
               target="_blank"
-              className="inline-flex items-center gap-3 h-[54px] px-10 rounded-full border border-[#d8cfc1] text-[#171412] tracking-[0.18em] uppercase text-[0.76rem] hover:bg-[#ece4d7] transition"
+              className="inline-flex items-center justify-center h-[58px] px-10 rounded-full border border-[#d7cdc1] text-[#171412] tracking-[0.18em] text-[0.78rem]"
             >
-              <Headphones size={18} />
-              Spotify
+              SPOTIFY
             </Link>
 
             <Link
               href="#"
-              className="inline-flex items-center gap-3 h-[54px] px-10 rounded-full bg-[#d4a24c] text-[#171412] tracking-[0.18em] uppercase text-[0.76rem] hover:opacity-90 transition"
+              className="inline-flex items-center justify-center h-[58px] px-10 rounded-full bg-[#d4a24c] text-[#171412] tracking-[0.18em] text-[0.78rem]"
             >
-              <Podcast size={18} />
-              Apple Podcasts
+              APPLE PODCASTS
             </Link>
-
-          </div>
-
-        </div>
-
-        {/* FEATURED EPISODE */}
-        <div className="mt-24">
-
-          <div className="bg-[#f8f4ee] border border-[#ddd3c7] rounded-[36px] p-10 md:p-14 max-w-[900px]">
-
-            <div className="flex items-center gap-3 mb-8">
-
-              <Headphones size={18} className="text-[#c89b4d]" />
-
-              <p className="text-[0.72rem] tracking-[0.28em] uppercase text-[#c89b4d]">
-                Featured Episode
-              </p>
-
-            </div>
-
-            <h2 className="font-serif text-[1.8rem] md:text-[2.4rem] leading-[1.08] tracking-[-0.04em] text-[#171412] max-w-[680px]">
-              Why you shut down in relationships.
-            </h2>
-
-            <p className="text-[#6e675f] text-[1rem] leading-[2] mt-8 max-w-[620px]">
-              Exploring emotional withdrawal, defensiveness, overwhelm,
-              and the deeper relational patterns beneath disconnection.
-            </p>
-
-            <div className="mt-10">
-
-              <Link
-                href="https://open.spotify.com/show/2uDLEiwEVlGYZOmGLHI9Cr"
-                target="_blank"
-                className="inline-flex items-center justify-center h-[54px] px-10 rounded-full bg-[#d4a24c] text-[#171412] tracking-[0.18em] uppercase text-[0.76rem] hover:opacity-90 transition"
-              >
-                Listen Now
-              </Link>
-
-            </div>
 
           </div>
 
         </div>
 
         {/* TOPICS */}
-        <div className="mt-28">
 
-          <p className="text-[0.72rem] tracking-[0.32em] uppercase text-[#c89b4d] mb-12">
+        <div className="mt-32">
+
+          <p className="text-[0.72rem] tracking-[0.32em] uppercase text-[#c89b4d] mb-10">
             Topics
           </p>
 
-          <div className="flex flex-wrap gap-5">
+          <div className="flex flex-wrap gap-6">
 
-            {[
-              "Relationships",
-              "Work Stress",
-              "Anxiety",
-              "Burnout",
-              "Emotional Exhaustion",
-              "Self Awareness",
-              "Attachment",
-              "Identity",
-              "Overthinking",
-              "Intimacy",
-              "Emotional Regulation",
-              "Communication",
-              "Self Esteem",
-              "Dating",
-              "Boundaries",
-            ].map((topic) => (
+            {topics.map((topic) => (
               <div
-                key={topic}
-                className="px-8 py-4 rounded-full bg-[#e5ddd2] text-[#171412] uppercase tracking-[0.18em] text-[0.72rem]"
+                key={topic.label}
+                className={`${topic.color} rounded-full px-12 py-6`}
               >
-                {topic}
+                <p className="text-[0.82rem] tracking-[0.22em] text-[#171412] whitespace-nowrap">
+                  {topic.label}
+                </p>
               </div>
             ))}
 
