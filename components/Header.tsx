@@ -42,7 +42,7 @@ export default function Header() {
             Services
           </Link>
 
-          <Link href="/podcast" className="text-[0.78rem] uppercase tracking-[0.18em] text-[#d6d0c7] hover:text-white transition">
+          <Link href="/podcasts" className="text-[0.78rem] uppercase tracking-[0.18em] text-[#d6d0c7] hover:text-white transition">
             Podcast
           </Link>
 

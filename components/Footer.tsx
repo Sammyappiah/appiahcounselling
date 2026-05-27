@@ -36,7 +36,7 @@ export default function Footer() {
             </Link>
 
             <Link
-              href="/podcast"
+              href="/podcasts"
               className="text-[#d6d0c7] uppercase tracking-[0.14em] text-[0.68rem] hover:text-white transition whitespace-nowrap"
             >
               Podcast
