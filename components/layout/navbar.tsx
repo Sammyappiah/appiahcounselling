@@ -8,11 +8,9 @@ const links = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
-  { href: "/insights", label: "Insights" },
   { href: "/podcast", label: "Podcast" },
   { href: "/contact", label: "Contact" },
 ];
-
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
