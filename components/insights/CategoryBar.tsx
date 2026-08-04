@@ -14,7 +14,7 @@ export default function CategoryBar({
   return (
     <section className="py-10 border-y border-[#e3d8cb] bg-[#f7f3ed]">
 
-      <div className="max-w-[1240px] mx-auto px-6 md:px-10 lg:px-16">
+      <div className="max-w-[1240px] mx-auto px-6 md:px-8 lg:px-16">
 
         <div className="overflow-x-auto">
 

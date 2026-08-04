@@ -11,7 +11,7 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-[#111111] border-b border-[#262626]">
 
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 h-[88px] flex items-center justify-between">
+      <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20 h-[88px] flex items-center justify-between">
 
         {/* LOGO */}
         <Link href="/" className="flex items-center">
@@ -28,7 +28,7 @@ export default function Header() {
         </Link>
 
         {/* DESKTOP NAV */}
-        <nav className="hidden md:flex items-center gap-10">
+        <nav className="hidden md:flex items-center gap-6">
 
           <Link href="/" className="text-[0.78rem] uppercase tracking-[0.18em] text-[#d6d0c7] hover:text-white transition">
             Home

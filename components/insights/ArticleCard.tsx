@@ -35,13 +35,13 @@ export default function ArticleCard({ article }: ArticleCardProps) {
 
       {/* CONTENT */}
 
-      <div className="flex flex-1 flex-col p-8">
+      <div className="flex flex-1 flex-col p-6">
 
         <h3 className="font-serif text-[1.42rem] leading-[1.18] tracking-[-0.02em] text-[#171412]">
           {article.title}
         </h3>
 
-        <p className="mt-5 text-[0.96rem] leading-[1.85] text-[#6e675f] line-clamp-3">
+        <p className="mt-5 text-[0.96rem] leading-[1.85] text-[#5c5550] line-clamp-3">
           {article.excerpt}
         </p>
 

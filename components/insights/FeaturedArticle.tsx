@@ -19,15 +19,15 @@ export default function FeaturedArticle({
   if (!article) return null;
 
   return (
-    <section className="py-16 md:py-20">
+    <section className="py-12 md:py-12">
 
-      <div className="max-w-[1240px] mx-auto px-6 md:px-10 lg:px-16">
+      <div className="max-w-[1240px] mx-auto px-6 md:px-8 lg:px-16">
 
         <p className="text-[0.72rem] tracking-[0.32em] uppercase text-[#c89b4d] mb-10">
           Featured Article
         </p>
 
-        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-20 items-center">
+        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-10 items-center">
 
           {/* LEFT */}
 
@@ -41,7 +41,7 @@ export default function FeaturedArticle({
               {article.title}
             </h2>
 
-            <p className="mt-8 text-[1rem] leading-[1.95] text-[#6e675f] max-w-[52ch]">
+            <p className="mt-8 text-[1rem] leading-8 text-[#5c5550] max-w-[52ch]">
               {article.excerpt}
             </p>
 
@@ -57,7 +57,7 @@ export default function FeaturedArticle({
 
             <Link
               href={`/insights/${article.slug}`}
-              className="inline-flex items-center justify-center h-[54px] px-10 mt-12 rounded-full bg-[#171412] text-white text-[0.72rem] tracking-[0.22em] uppercase transition-all duration-300 hover:opacity-90"
+              className="inline-flex items-center justify-center h-[50px] px-8 mt-12 rounded-full bg-[#171412] text-white text-[0.72rem] tracking-[0.22em] uppercase transition-all duration-300 hover:opacity-90"
             >
               Read Article
             </Link>
@@ -68,9 +68,9 @@ export default function FeaturedArticle({
 
           <div>
 
-            <div className="aspect-[16/10] rounded-[32px] overflow-hidden bg-gradient-to-br from-[#f3ebe1] via-[#ece2d5] to-[#d9bc88]">
+            <div className="aspect-[16/10] rounded-[28px] overflow-hidden bg-gradient-to-br from-[#f3ebe1] via-[#ece2d5] to-[#d9bc88]">
 
-              <div className="w-full h-full flex items-end p-10">
+              <div className="w-full h-full flex items-end p-6">
 
                 <div className="bg-white/75 backdrop-blur rounded-full px-5 py-3">
 

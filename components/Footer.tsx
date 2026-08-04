@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className="bg-black border-t border-[#1d1d1d]">
 
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-6">
+      <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20 py-6">
 
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
 
@@ -12,7 +12,7 @@ export default function Footer() {
             © 2026 Appiah Counselling
           </p>
 
-          <div className="flex flex-wrap md:flex-nowrap items-center gap-5 md:gap-8">
+          <div className="flex flex-wrap md:flex-nowrap items-center gap-5 md:gap-6">
 
             <Link
               href="/"

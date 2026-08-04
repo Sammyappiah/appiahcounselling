@@ -4,15 +4,15 @@ export default function ServicesPage() {
 
   return (
 
-    <main className="bg-[#ece8e1] text-[#171412] min-h-screen pt-32 md:pt-40">
+    <main className="bg-[#ece8e1] text-[#171412] min-h-screen pt-20 md:pt-40">
 
-      <section className="max-w-[1380px] mx-auto px-6 md:px-10 lg:px-16 pt-10 md:pt-12 lg:pt-16 pb-24">
+      <section className="max-w-[1380px] mx-auto px-6 md:px-8 lg:px-16 pt-10 md:pt-12 lg:pt-10 pb-12">
 
-        <div className="grid grid-cols-1 lg:grid-cols-[420px_1fr] gap-16 lg:gap-24 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-[420px_1fr] gap-10 lg:gap-10 items-start">
 
           {/* LEFT INTRO */}
 
-          <div className="max-w-[420px]">
+          <div className="max-w-[520px]">
 
             <p className="text-[0.72rem] tracking-[0.32em] uppercase text-[#c89b4d] mb-10">
 
@@ -37,9 +37,9 @@ export default function ServicesPage() {
               seeking clarity.
             </h1>
 
-            <div className="w-24 h-px bg-[#c89b4d] mt-12 mb-12" />
+            <div className="mx-auto mt-10 mb-10 h-px w-40 bg-[#c89b4d]" />
 
-            <p className="text-[1rem] leading-[2] text-[#6e675f] max-w-[36ch]">
+            <p className="text-[1rem] leading-[2] text-[#5c5550] max-w-[32ch]">
               Calm, reflective counselling for people navigating emotional overwhelm,
               anxiety, overthinking, relationship difficulties, intimacy, identity,
               and the quieter struggles carried beneath everyday life.
@@ -48,7 +48,7 @@ export default function ServicesPage() {
           </div>
 
           {/* RIGHT CARDS */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-6">
 
             {/* INDIVIDUAL */}
             <div
@@ -57,7 +57,7 @@ export default function ServicesPage() {
                 border
                 border-[#d8cec2]
                 rounded-[38px]
-                p-10
+                p-6
                 md:p-12
                 flex
                 flex-col
@@ -139,7 +139,7 @@ export default function ServicesPage() {
                 border
                 border-[#d8cec2]
                 rounded-[38px]
-                p-10
+                p-6
                 md:p-12
                 flex
                 flex-col

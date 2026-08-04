@@ -1,104 +1,42 @@
-import Image from "next/image";
+import Link from "next/link";
 
 export default function ContactPage() {
-
   return (
+    <main className="bg-[#f3efe8] min-h-screen pt-12 md:pt-28">
 
-    <main className="bg-[#f3efe8] min-h-screen pt-32 md:pt-40">
+      <section>
+        <div className="mx-auto max-w-[760px] px-6 md:px-10">
 
-      <section className="bg-[#f3efe8]">
+          <div className="py-10 md:py-12 text-center">
 
-        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
+            <p className="mb-6 text-[0.72rem] uppercase tracking-[0.32em] text-[#c89b4d]">
+              Contact
+            </p>
 
-          <div className="flex justify-center pt-10 md:pt-12 lg:pt-16 pb-24">
+            <h1 className="font-serif text-[2rem] md:text-[2.5rem] leading-tight tracking-[-0.03em] text-[#171412]">
+            </h1>
 
-            <div className="max-w-[620px] w-full text-center">
+            <div className="mx-auto my-8 h-px w-24 bg-[#c89b4d]" />
 
-              <p className="text-[0.72rem] tracking-[0.32em] uppercase text-[#c89b4d] mb-12">
+            <p className="mx-auto mb-10 max-w-[36ch] text-[1rem] leading-8 text-[#5c5550]">
+              A calm space to reach out regarding therapy, questions, or working together.
+            </p>
 
-                Contact
+            <div className="flex flex-wrap justify-center gap-4">
 
-              </p>
+              <Link
+                href="mailto:sammy@appiahcounselling.com"
+                className="inline-flex h-[50px] items-center justify-center rounded-full border border-[#d4c7b7] px-8 text-[0.78rem] uppercase tracking-[0.22em] text-[#171412] transition-all duration-200 ease-out hover:bg-[#ebe3d9]"
+              >
+                Email Me
+              </Link>
 
-<h1 className="font-serif text-[1.42rem] leading-[1.02] tracking-[-0.035em] text-[#171412] max-w-[420px] mx-auto">
-  Begin the conversation.
-</h1>
-              <div className="w-24 h-px bg-[#c89b4d] mt-12 mb-12 mx-auto" />
-
-              <p className="text-[1rem] leading-[1.95] text-[#6e675f] max-w-[36ch] mx-auto">
-                A calm space to reach out regarding therapy,
-                questions, or working together.
-              </p>
-
-              <p className="text-[0.92rem] text-[#8b847c] mt-5">
-                Responses are typically within 24–48 hours.
-              </p>
-
-              {/* BUTTONS */}
-              <div className="flex flex-wrap justify-center gap-5 mt-12">
-
-                <a
-                  href="mailto:sammy@appiahcounselling.com"
-                  className="
-                    inline-flex
-                    items-center
-                    justify-center
-                    h-[54px]
-                    px-10
-                    rounded-full
-                    border
-                    border-[#d4c7b7]
-                    text-[0.76rem]
-                    tracking-[0.24em]
-                    uppercase
-                    text-[#171412]
-                    transition
-                    hover:bg-[#efe8df]
-                  "
-                >
-                  Email Me
-                </a>
-
-                <a
-                  href="https://whatsapp.com/channel/0029VakFswBISTkBdZkh590h"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="
-                    inline-flex
-                    items-center
-                    justify-center
-                    h-[54px]
-                    px-10
-                    rounded-full
-                    bg-[#d4a24c]
-                    text-[0.76rem]
-                    tracking-[0.24em]
-                    uppercase
-                    text-black
-                    transition
-                    hover:opacity-90
-                  "
-                >
-                  Join WhatsApp Channel
-                </a>
-
-              </div>
-
-              {/* QR CODE */}
-              <div className="mt-20 flex justify-center">
-
-                <div className="bg-white rounded-[28px] p-6 border border-[#e7ddd2] shadow-sm">
-
-<Image
-  src="/whatsapp-qr.png"
-  alt="WhatsApp QR"
-  width={140}
-  height={140}
-  className="w-[140px] h-auto"
-/>
-                </div>
-
-              </div>
+              <Link
+                href="tel:+447947629518"
+                className="inline-flex h-[50px] items-center justify-center rounded-full bg-[#d4a24c] px-8 text-[0.78rem] uppercase tracking-[0.22em] text-[#171412] transition-all duration-200 ease-out hover:opacity-90"
+              >
+                Call Me
+              </Link>
 
             </div>
 

@@ -3,14 +3,14 @@ import Image from "next/image";
 
 export default function HomePage() {
   return (
-    <main className="bg-[#f3efe8] min-h-screen pt-32 md:pt-40">
+    <main className="bg-[#f3efe8] min-h-screen pt-10 md:pt-12">
 
       {/* HERO */}
       <section className="bg-[#f3efe8]">
 
-        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
+        <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20">
 
-          <div className="grid lg:grid-cols-[520px_1fr] gap-16 lg:gap-24 pt-10 md:pt-12 lg:pt-16 pb-16">
+          <div className="grid lg:grid-cols-[520px_1fr] gap-10 lg:gap-10 pt-0 pb-12">
 
             {/* LEFT COLUMN */}
             <div className="max-w-[520px]">
@@ -25,9 +25,9 @@ export default function HomePage() {
                 not just the symptoms.
               </h1>
 
-              <div className="w-24 h-px bg-[#c89b4d] mt-12 mb-12" />
+              <div className="mx-auto mt-10 mb-10 h-px w-40 bg-[#c89b4d]" />
 
-              <p className="text-[1rem] leading-[1.95] text-[#6e675f] max-w-[36ch]">
+              <p className="text-[1rem] leading-8 text-[#5c5550] max-w-[32ch]">
                 Calm, reflective therapy for people carrying emotional exhaustion,
                 anxiety, overthinking, and relational tension beneath the surface.
               </p>
@@ -35,7 +35,7 @@ export default function HomePage() {
               <div className="mt-12">
                 <Link
                   href="/services"
-                  className="inline-flex items-center justify-center h-[54px] px-10 rounded-full bg-[#d4a24c] text-[#171412] text-sm tracking-[0.08em] uppercase hover:opacity-90 transition"
+                  className="inline-flex items-center justify-center h-[50px] px-8 rounded-full bg-[#d4a24c] text-[#171412] text-sm tracking-[0.12em] font-medium uppercase hover:opacity-90 transition"
                 >
                   Book Session
                 </Link>
@@ -46,7 +46,7 @@ export default function HomePage() {
             {/* DESKTOP IMAGE */}
             <div className="hidden lg:flex items-end justify-end">
 
-              <div className="w-full max-w-[760px]">
+              <div className="w-full max-w-[800px]">
                 <Image
                   src="/images/therapy.jpg"
                   alt="Therapy session"
@@ -62,7 +62,7 @@ export default function HomePage() {
           </div>
 
           {/* MOBILE IMAGE */}
-          <div className="lg:hidden pb-16">
+          <div className="lg:hidden pb-12">
 
             <Image
               src="/images/therapy.jpg"
@@ -79,47 +79,47 @@ export default function HomePage() {
 
       </section>
 
-      {/* TESTIMONIALS */}
-      <section className="mt-16 md:mt-24 border-t border-[#ddd3c7] pt-16">
+{/* TESTIMONIALS */}
 
-        <div className="max-w-[1200px] mx-auto px-6 md:px-12 lg:px-20">
+<section className="mt-10 md:mt-10 border-t border-[#ddd3c7] py-10 md:py-12">
 
-          <p className="text-[0.72rem] tracking-[0.32em] uppercase text-[#c89b4d] mb-14">
-            Client Reflections
-          </p>
+  <div className="mx-auto max-w-[1280px] px-6 md:px-12 lg:px-20">
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <p className="mb-8 text-[11px] uppercase tracking-[0.32em] text-[#c89b4d]">
+      Client Reflections
+    </p>
 
-            <div className="bg-[#f5f1eb] border border-[#ddd3c7] rounded-[32px] p-8 md:p-10">
-              <p className="font-serif text-[1.25rem] leading-[1.45] tracking-[-0.02em] text-[#171412]">
-                “Samuel holds space with honesty, understanding, and without judgement.”
-              </p>
-            </div>
+    <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
 
-            <div className="bg-[#f5f1eb] border border-[#ddd3c7] rounded-[32px] p-8 md:p-10">
-              <p className="font-serif text-[1.25rem] leading-[1.45] tracking-[-0.02em] text-[#171412]">
-                “I was made to feel relaxed and ready to open up.”
-              </p>
-            </div>
+      <div className="rounded-[28px] border border-[#ddd3c7] bg-[#f5f1eb] p-6 md:p-6">
+        <p className="font-serif text-[1.08rem] leading-[1.6] tracking-[-0.02em] text-[#171412]">
+          “Samuel holds space with honesty, understanding, and without judgement.”
+        </p>
+      </div>
 
-            <div className="bg-[#f5f1eb] border border-[#ddd3c7] rounded-[32px] p-8 md:p-10">
-              <p className="font-serif text-[1.25rem] leading-[1.45] tracking-[-0.02em] text-[#171412]">
-                “Thoughtful, insightful, and genuinely easy to talk to.”
-              </p>
-            </div>
+      <div className="rounded-[28px] border border-[#ddd3c7] bg-[#f5f1eb] p-6 md:p-6">
+        <p className="font-serif text-[1.08rem] leading-[1.6] tracking-[-0.02em] text-[#171412]">
+          “I was made to feel relaxed and ready to open up.”
+        </p>
+      </div>
 
-            <div className="bg-[#f5f1eb] border border-[#ddd3c7] rounded-[32px] p-8 md:p-10">
-              <p className="font-serif text-[1.25rem] leading-[1.45] tracking-[-0.02em] text-[#171412]">
-                “The sessions helped me understand patterns I hadn’t previously seen.”
-              </p>
-            </div>
+      <div className="rounded-[28px] border border-[#ddd3c7] bg-[#f5f1eb] p-6 md:p-6">
+        <p className="font-serif text-[1.08rem] leading-[1.6] tracking-[-0.02em] text-[#171412]">
+          “Thoughtful, insightful, and genuinely easy to talk to.”
+        </p>
+      </div>
 
-          </div>
+      <div className="rounded-[28px] border border-[#ddd3c7] bg-[#f5f1eb] p-6 md:p-6">
+        <p className="font-serif text-[1.08rem] leading-[1.6] tracking-[-0.02em] text-[#171412]">
+          “The sessions helped me understand patterns I hadn’t previously seen.”
+        </p>
+      </div>
 
-        </div>
+    </div>
 
-      </section>
+  </div>
 
+</section>
     </main>
   );
 }

@@ -12,9 +12,9 @@ export default function Hero({
   setSearchQuery,
 }: HeroProps) {
   return (
-    <section className="pt-28 md:pt-32 lg:pt-36 pb-14 border-b border-[#e3d8cb]">
+    <section className="pt-28 md:pt-20 lg:pt-36 pb-14 border-b border-[#e3d8cb]">
 
-      <div className="max-w-[1240px] mx-auto px-6 md:px-10 lg:px-16">
+      <div className="max-w-[1240px] mx-auto px-6 md:px-8 lg:px-16">
 
         <p className="text-[0.72rem] tracking-[0.32em] uppercase text-[#c89b4d] mb-10">
           Counselling Knowledge Library
@@ -26,9 +26,9 @@ export default function Hero({
           Insights
         </h1>
 
-        <div className="w-24 h-px bg-[#c89b4d] mt-12 mb-12" />
+        <div className="mx-auto mt-10 mb-10 h-px w-40 bg-[#c89b4d]" />
 
-        <p className="text-[1rem] leading-[1.95] text-[#6e675f] max-w-[42ch]">
+        <p className="text-[1rem] leading-8 text-[#5c5550] max-w-[36ch]">
           Evidence-based articles exploring mental health,
           relationships, emotional wellbeing and personal
           growth, inspired by questions discussed throughout
@@ -66,7 +66,7 @@ export default function Hero({
 
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center h-[58px] px-10 rounded-full bg-[#d4a24c] text-[#171412] text-[0.72rem] tracking-[0.24em] uppercase whitespace-nowrap transition-all duration-300 hover:opacity-90"
+            className="inline-flex items-center justify-center h-[58px] px-8 rounded-full bg-[#d4a24c] text-[#171412] text-[0.72rem] tracking-[0.24em] uppercase whitespace-nowrap transition-all duration-300 hover:opacity-90"
           >
             Subscribe
           </Link>

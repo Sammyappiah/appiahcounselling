@@ -32,7 +32,7 @@ export default function PodcastPage() {
   return (
     <main className="min-h-screen bg-[#F4EFE7]">
 
-      <section className="mx-auto max-w-3xl px-6 pt-24 pb-16 text-center">
+      <section className="mx-auto max-w-3xl px-6 pt-12 pb-12 text-center">
 
         <p className="text-[11px] uppercase tracking-[0.35em] text-[#C89A54]">
           Podcast
@@ -48,7 +48,7 @@ export default function PodcastPage() {
 
       </section>
 
-      <section className="mx-auto max-w-6xl px-5 pb-24">
+      <section className="mx-auto max-w-6xl px-5 pb-12">
 
         <div className="grid grid-cols-2 gap-4 md:grid-cols-5">
 
